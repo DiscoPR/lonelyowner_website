@@ -63,9 +63,6 @@ export function Footer() {
               Facebook
             </a>
           </div>
-          <p className="mt-4 text-xs text-muted">
-            Update these links in <code>src/lib/site.ts</code>.
-          </p>
         </div>
       </div>
       <div className="border-t border-cream/10 py-5 text-center text-xs text-muted">
