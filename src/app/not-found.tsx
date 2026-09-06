@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CtaLink } from "@/components/CtaLink";
 import { site } from "@/lib/site";
 
@@ -14,9 +15,9 @@ export default function NotFound() {
         The link is dead or the page moved. Head home or book the audit call.
       </p>
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <a href="/" className="cta-secondary">
+        <Link href="/" className="cta-secondary">
           Back to home
-        </a>
+        </Link>
         <CtaLink>{site.primaryCtaLabel}</CtaLink>
       </div>
     </section>
