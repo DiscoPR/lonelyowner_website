@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #110f0c;
+  --shop: #1a1713;
+  --steel: #2b261f;
+  --paper: #f3eee4;
+  --sand: #e4d9c6;
+  --copper: #c67b3a;
+  --copper-hot: #e39a52;
+  --cream: #f6f1e7;
+  --muted: #b6ab9c;
+  --ink-soft: #3d3830;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-shop: var(--shop);
+  --color-steel: var(--steel);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-copper: var(--copper);
+  --color-copper-hot: var(--copper-hot);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+  --color-ink-soft: var(--ink-soft);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-source-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.035;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+}
+
+.shop-grid {
+  background-image:
+    linear-gradient(to right, rgba(246, 241, 231, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(246, 241, 231, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.paper-grid {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, rgba(17, 15, 12, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 15, 12, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.15rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: 4px;
+  background: var(--copper);
+  color: #1a120a;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 8px 20px rgba(198, 123, 58, 0.22);
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+
+.cta-primary:hover {
+  background: var(--copper-hot);
+}
+
+.cta-primary:focus-visible,
+.cta-secondary:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--copper-hot);
+  outline-offset: 3px;
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.15rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  border: 1px solid rgba(246, 241, 231, 0.22);
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.cta-secondary:hover {
+  border-color: rgba(246, 241, 231, 0.5);
+  background: rgba(246, 241, 231, 0.04);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
