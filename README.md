@@ -26,12 +26,14 @@ Kevin can import this repo as-is. Nothing extra to configure.
 1. In Vercel, click **Add New** → **Project**.
 2. Import `DiscoPR/lonelyowner_website`.
 3. Confirm:
-   - Framework Preset: **Next.js** (auto-detected)
+   - Framework Preset: **Next.js** (also pinned in `vercel.json`)
    - Root Directory: `./`
    - Build Command: `next build` (default)
-   - Output: default Next.js (do not set it to a static folder)
+   - Output Directory: leave **blank**. Do not set it to `public`.
    - **Environment Variables: none.** Leave this empty.
 4. Deploy from the `main` branch.
+
+If a deploy log says `No Output Directory named "public" found after the Build completed`, Next.js already built. The Vercel project is still treating this as a static site. Clear **Project Settings → General → Build and Deployment → Output Directory**, then redeploy. `vercel.json` sets `framework` to `nextjs` and `outputDirectory` to `null` so that dashboard leftover cannot force `public` again.
 
 Production URLs after DNS:
 
