@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="September 6, 2026">
+    <LegalPage title="Privacy Policy" updated="September 10, 2026">
       <p>
         This policy covers {site.name} ({site.domain}), operated by{" "}
         {site.founder}. It is a marketing site for an AI Opportunity Audit and
@@ -25,11 +25,7 @@ export default function PrivacyPage() {
       <p>
         If you book a call, you leave {site.domain} and use Calendly. Calendly
         will collect the name, email, and other details you type there. If you
-        email or call us, we receive whatever you send to{" "}
-        <a className="underline" href={`mailto:${site.email}`}>
-          {site.email}
-        </a>{" "}
-        or {site.phoneDisplay}.
+        contact us through that booking form, we receive whatever you send.
       </p>
       <h2 className="font-serif text-2xl text-ink">How we use contact details</h2>
       <p>
@@ -65,12 +61,17 @@ export default function PrivacyPage() {
       </p>
       <h2 className="font-serif text-2xl text-ink">Your requests</h2>
       <p>
-        If you want a copy of what we have, a correction, or a deletion, email{" "}
-        <a className="underline" href={`mailto:${site.email}`}>
-          {site.email}
-        </a>
-        . We will handle it as the law requires and as a shop should: promptly
-        and without a maze.
+        If you want a copy of what we have, a correction, or a deletion, use the{" "}
+        <a
+          className="underline"
+          href={site.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {site.primaryCtaLabel}
+        </a>{" "}
+        link on this site. We will handle it as the law requires and as a shop
+        should: promptly and without a maze.
       </p>
       <h2 className="font-serif text-2xl text-ink">Children</h2>
       <p>
@@ -89,12 +90,13 @@ export default function PrivacyPage() {
         <br />
         {site.name}
         <br />
-        <a className="underline" href={`mailto:${site.email}`}>
-          {site.email}
-        </a>
-        <br />
-        <a className="underline" href={site.phoneHref}>
-          {site.phoneDisplay}
+        <a
+          className="underline"
+          href={site.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {site.primaryCtaLabel}
         </a>
       </p>
     </LegalPage>

@@ -8,8 +8,7 @@ export function Footer() {
         <div>
           <p className="font-serif text-2xl text-cream">{site.name}</p>
           <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
-            AI Opportunity Audit for owner-operated trades. Built by{" "}
-            {site.founder}. Bots draft. The owner sends.
+            {site.tagline}
           </p>
         </div>
 
@@ -19,13 +18,13 @@ export function Footer() {
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a className="hover:text-copper-hot" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a className="hover:text-copper-hot" href={site.phoneHref}>
-                {site.phoneDisplay}
+              <a
+                className="hover:text-copper-hot"
+                href={site.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {site.primaryCtaLabel}
               </a>
             </li>
             <li>
