@@ -69,7 +69,7 @@ You do not need Vercel nameservers unless you want Vercel to manage the whole DN
 Edit `src/lib/site.ts` for:
 
 - Calendly URL
-- Phone and email
+- Tagline
 - YouTube and Facebook footer buttons
 - Webinar title and cadence
 - Offer, FAQ, and resource copy

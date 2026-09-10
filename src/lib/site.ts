@@ -3,9 +3,7 @@ export const site = {
   domain: "lonelyowner.com",
   url: "https://lonelyowner.com",
   founder: "Kevin Andreosky",
-  email: "kevin.andreosky@gmail.com",
-  phoneDisplay: "732-232-5358",
-  phoneHref: "tel:+17322325358",
+  tagline: "The blueprint for better outcomes",
   calendly: "https://calendly.com/trainedbykevin/letsmeet",
   primaryCtaLabel: "Book a 15-minute audit call",
   social: {
@@ -228,8 +226,6 @@ export function organizationJsonLd() {
     "@type": "ProfessionalService",
     name: site.name,
     url: site.url,
-    email: site.email,
-    telephone: "+1-732-232-5358",
     founder: {
       "@type": "Person",
       name: site.founder,

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Use" updated="September 6, 2026">
+    <LegalPage title="Terms of Use" updated="September 10, 2026">
       <p>
         These terms cover the public website at {site.domain} and the way you
         book time with {site.name}. If you hire us for an audit or
@@ -75,11 +75,16 @@ export default function TermsPage() {
       </p>
       <h2 className="font-serif text-2xl text-ink">Contact</h2>
       <p>
-        Questions about these terms go to{" "}
-        <a className="underline" href={`mailto:${site.email}`}>
-          {site.email}
+        Questions about these terms go through the{" "}
+        <a
+          className="underline"
+          href={site.calendly}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {site.primaryCtaLabel}
         </a>{" "}
-        or {site.phoneDisplay}.
+        link on this site.
       </p>
     </LegalPage>
   );

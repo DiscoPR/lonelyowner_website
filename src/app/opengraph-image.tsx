@@ -57,7 +57,7 @@ export default function OpenGraphImage() {
             The after-hours call is a job. Voicemail is how you lose it.
           </div>
           <div style={{ fontSize: 28, color: "#c67b3a" }}>
-            AI Opportunity Audit for owner-operated trades
+            The blueprint for better outcomes
           </div>
         </div>
       </div>

@@ -6,8 +6,8 @@ export function Hero() {
     <section className="shop-grid relative overflow-hidden border-b border-cream/10">
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_80%_20%,rgba(198,123,58,0.18),transparent_45%)]" />
       <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
-        <p className="text-xs font-semibold tracking-[0.18em] text-copper uppercase">
-          AI Opportunity Audit for owner-operated trades
+        <p className="text-sm font-medium tracking-wide text-copper">
+          {site.tagline}
         </p>
         <h1 className="mt-5 max-w-4xl font-serif text-4xl leading-[1.08] tracking-tight text-cream sm:text-6xl">
           The after-hours call is a job. Voicemail is how you lose it.
@@ -27,11 +27,6 @@ export function Hero() {
           <ul className="flex max-w-xl flex-col gap-2 text-sm text-cream/70 sm:flex-row sm:flex-wrap sm:gap-x-6">
             <li>15 minutes to see if it is a fit</li>
             <li>$50M+ closed by Kevin</li>
-            <li>
-              <a className="underline decoration-copper/70 underline-offset-4 hover:text-cream" href={site.phoneHref}>
-                {site.phoneDisplay}
-              </a>
-            </li>
           </ul>
         </div>
       </div>

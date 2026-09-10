@@ -56,12 +56,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={site.phoneHref}
-            className="nav-link text-sm font-semibold text-cream/80 hover:text-cream"
-          >
-            {site.phoneDisplay}
-          </a>
           <CtaLink className="!min-h-10 !px-4 !text-sm">
             {site.primaryCtaLabel}
           </CtaLink>
@@ -112,13 +106,6 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={site.phoneHref}
-            className="rounded-sm px-2 py-3 text-lg text-cream hover:bg-cream/5"
-            onClick={() => setOpen(false)}
-          >
-            Call {site.phoneDisplay}
-          </a>
           <CtaLink className="mt-2 w-full" href={site.calendly}>
             {site.primaryCtaLabel}
           </CtaLink>
