@@ -80,6 +80,7 @@ Facebook default: `https://www.facebook.com/LonelyOwner`
 ## Routes
 
 - `/` homepage
+- `/free-audit` free Ops Leak Score request (summary emailed after a public-page review; not a live scanner)
 - `/resources` shop jobs a bot should draft (owner still sends)
 - `/privacy` privacy policy
 - `/terms` terms of use

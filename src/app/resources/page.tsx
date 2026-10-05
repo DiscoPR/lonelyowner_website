@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CtaLink } from "@/components/CtaLink";
+import { opsLeakPath } from "@/lib/ops-leak";
 import { resourceJobs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,7 +27,12 @@ export default function ResourcesPage() {
             field. A bot can draft every one of them. You still send. That is
             the rule.
           </p>
-          <CtaLink className="mt-8">{site.primaryCtaLabel}</CtaLink>
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+            <CtaLink>{site.primaryCtaLabel}</CtaLink>
+            <Link href={opsLeakPath} className="cta-secondary">
+              Get your free Ops Leak Score
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { CtaLink } from "@/components/CtaLink";
+import { opsLeakPath } from "@/lib/ops-leak";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -19,16 +21,19 @@ export function Hero() {
           job.
         </p>
 
-        <div className="mt-9 flex flex-col items-start gap-5">
+        <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
           <CtaLink>
             {site.primaryCtaLabel}
             <span aria-hidden="true">→</span>
           </CtaLink>
-          <ul className="flex max-w-xl flex-col gap-2 text-sm text-cream/70 sm:flex-row sm:flex-wrap sm:gap-x-6">
-            <li>15 minutes to see if it is a fit</li>
-            <li>$50M+ closed by Kevin</li>
-          </ul>
+          <Link href={opsLeakPath} className="cta-secondary">
+            Get your free Ops Leak Score
+          </Link>
         </div>
+        <ul className="mt-5 flex max-w-xl flex-col gap-2 text-sm text-cream/70 sm:flex-row sm:flex-wrap sm:gap-x-6">
+          <li>15 minutes to see if it is a fit</li>
+          <li>$50M+ closed by Kevin</li>
+        </ul>
       </div>
     </section>
   );
