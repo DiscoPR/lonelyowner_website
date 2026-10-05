@@ -43,7 +43,7 @@ export function Header() {
           <span>{site.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-3 xl:gap-6 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <Link
               key={link.href}

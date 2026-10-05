@@ -1,3 +1,5 @@
+import { opsLeakPath } from "@/lib/ops-leak";
+
 export const site = {
   name: "Lonely Owner",
   domain: "lonelyowner.com",
@@ -23,6 +25,7 @@ export const navLinks = [
   { href: "/#offer", label: "The audit" },
   { href: "/#webinar", label: "Webinar" },
   { href: "/resources", label: "Resources" },
+  { href: opsLeakPath, label: "Free score" },
 ] as const;
 
 export const trades = [

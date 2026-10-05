@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="September 10, 2026">
+    <LegalPage title="Privacy Policy" updated="October 5, 2026">
       <p>
         This policy covers {site.name} ({site.domain}), operated by{" "}
         {site.founder}. It is a marketing site for an AI Opportunity Audit and
@@ -19,8 +19,15 @@ export default function PrivacyPage() {
       <h2 className="font-serif text-2xl text-ink">What this site collects</h2>
       <p>
         This website does not require an account and does not run a customer
-        portal. If you only read the pages, we do not ask you for a name,
-        email, or payment card on this site.
+        portal. Reading the pages does not require a name, email, or payment
+        card. The free Ops Leak Score form is the exception: it asks for your
+        business website and the email where the summary should go.
+      </p>
+      <p>
+        That form does not save the request on this site. Submitting it opens
+        your email app with a note you send. We use that note to review public
+        pages and email your score summary, and to follow up if you ask about
+        the audit. We do not sell that list. You can tell us to stop.
       </p>
       <p>
         If you book a call, you leave {site.domain} and use Calendly. Calendly

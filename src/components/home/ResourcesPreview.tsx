@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { opsLeakPath } from "@/lib/ops-leak";
 import { resourceJobs, resourcePreviewIds } from "@/lib/site";
 
 export function ResourcesPreview() {
@@ -18,6 +19,16 @@ export function ResourcesPreview() {
             <p className="mt-4 leading-7 text-cream/72">
               Every bot drafts. The owner sends. Nothing goes to a customer
               until you say so.
+            </p>
+            <p className="mt-4 text-sm leading-6 text-cream/72">
+              Want a score on your own site first?{" "}
+              <Link
+                href={opsLeakPath}
+                className="font-semibold text-copper underline decoration-copper/40 underline-offset-4 hover:text-copper-hot"
+              >
+                Get a free Ops Leak Score
+              </Link>
+              . We email the summary. No live scanner on the page.
             </p>
           </div>
           <Link
