@@ -71,8 +71,8 @@ Edit `src/lib/site.ts` for:
 
 - Calendly URL
 - Tagline
-- Webinar title and cadence
-- Offer, FAQ, and resource copy
+- Audit and Grok bot prices
+- FAQ and resource copy
 
 There are no social profile links on the site.
 

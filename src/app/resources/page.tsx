@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaLink } from "@/components/CtaLink";
 import { opsLeakPath } from "@/lib/ops-leak";
-import { resourceJobs, site } from "@/lib/site";
+import { grokBots, resourceJobs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Shop jobs a bot should draft",
@@ -24,8 +24,16 @@ export default function ResourcesPage() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-cream/75">
             These are the tasks that steal the evening after a full day in the
-            field. A bot can draft every one of them. You still send. That is
-            the rule.
+            field. A Grok bot can draft every one of them. You still send.
+            That is the rule. Setup is {grokBots.three.price} for 3 bots or{" "}
+            {grokBots.seven.price} for 7, flat.{" "}
+            <Link
+              href="/#grok-bots"
+              className="font-semibold text-copper underline decoration-copper/40 underline-offset-4 hover:text-copper-hot"
+            >
+              See Grok bot setup
+            </Link>
+            .
           </p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
             <CtaLink>{site.primaryCtaLabel}</CtaLink>

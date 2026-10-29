@@ -21,16 +21,17 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Lonely Owner | AI Opportunity Audit for owner-operated trades",
+    default: "Lonely Owner | AI audits and Grok bots for owner-operated trades",
     template: "%s | Lonely Owner",
   },
   description:
-    "The after-hours call is a job. Voicemail is how you lose it. Lonely Owner runs an AI Opportunity Audit for HVAC, plumbing, docks, trash, construction, and shops. Bots draft. The owner sends.",
+    "Two offers for owner-operated trades. A free AI audit or a $999 working session, and Grok bots built by hand: 3 for $297 or 7 for $500.",
   applicationName: site.name,
   authors: [{ name: site.founder, url: site.url }],
   keywords: [
     "Lonely Owner",
     "AI Opportunity Audit",
+    "Grok bots",
     "blue collar AI",
     "HVAC",
     "plumbing",
@@ -41,15 +42,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Lonely Owner | AI Opportunity Audit for owner-operated trades",
+    title: "Lonely Owner | AI audits and Grok bots for owner-operated trades",
     description:
-      "Missed after-hours calls are missed jobs. Book a 15-minute audit call with Kevin Andreosky.",
+      "Free AI audit or a $999 working session. Grok bots built by hand: 3 for $297 or 7 for $500.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lonely Owner | AI Opportunity Audit for owner-operated trades",
+    title: "Lonely Owner | AI audits and Grok bots for owner-operated trades",
     description:
-      "Missed after-hours calls are missed jobs. Book a 15-minute audit call with Kevin Andreosky.",
+      "Free AI audit or a $999 working session. Grok bots built by hand: 3 for $297 or 7 for $500.",
   },
   robots: {
     index: true,
