@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Use" updated="October 5, 2026">
+    <LegalPage title="Terms of Use" updated="October 29, 2026">
       <p>
         These terms cover the public website at {site.domain} and the way you
         book time with {site.name}. If you hire us for an audit or
@@ -64,8 +64,8 @@ export default function TermsPage() {
       </p>
       <h2 className="font-serif text-2xl text-ink">Third-party links</h2>
       <p>
-        Calendly, YouTube, Facebook, and any other outbound link is someone
-        else&apos;s service. Their rules apply once you leave {site.domain}.
+        Calendly and any other outbound link is someone else&apos;s service.
+        Their rules apply once you leave {site.domain}.
       </p>
       <h2 className="font-serif text-2xl text-ink">Limitation</h2>
       <p>

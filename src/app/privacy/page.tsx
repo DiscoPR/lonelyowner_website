@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="October 5, 2026">
+    <LegalPage title="Privacy Policy" updated="October 29, 2026">
       <p>
         This policy covers {site.name} ({site.domain}), operated by{" "}
         {site.founder}. It is a marketing site for an AI Opportunity Audit and
@@ -50,9 +50,8 @@ export default function PrivacyPage() {
       </p>
       <h2 className="font-serif text-2xl text-ink">Third-party tools</h2>
       <p>
-        Booking uses Calendly. YouTube and Facebook buttons send you to those
-        companies if you click them. Each of those services has its own privacy
-        policy. Read theirs if you use their forms or pages.
+        Booking uses Calendly. Calendly has its own privacy policy. Read it if
+        you use their form.
       </p>
       <h2 className="font-serif text-2xl text-ink">Cookies</h2>
       <p>
