@@ -60,7 +60,8 @@ Notes:
 - If GoDaddy will not let you set an A record on `@` because of their parked records, delete the conflicting records, wait a few minutes, then add the Vercel A record.
 - Apex `lonelyowner.com` uses an **A** record. `www` uses a **CNAME**. Do not put an A record on `www`.
 - DNS can take from a few minutes up to 48 hours. Vercel will show a green check when the domain is valid.
-- After both hosts are valid, set `lonelyowner.com` as the primary domain in Vercel and 301 `www` to it (or the reverse). Either is fine. Pick one and keep it.
+- After both hosts are valid, set `lonelyowner.com` as the primary domain in Vercel so `www` redirects to it. The site canonical URL, Open Graph URL, and sitemap all use `https://lonelyowner.com`. A check on October 29, 2026 found the reverse: `https://lonelyowner.com` redirected to `https://www.lonelyowner.com`.
+- HTTP to HTTPS is handled by Vercel (308) before this app runs. Leave GoDaddy domain forwarding off. A forwarding rule fights the A and CNAME records and can return an error page instead of that redirect.
 
 You do not need Vercel nameservers unless you want Vercel to manage the whole DNS zone. The A + CNAME method above keeps DNS at GoDaddy.
 
@@ -70,12 +71,10 @@ Edit `src/lib/site.ts` for:
 
 - Calendly URL
 - Tagline
-- YouTube and Facebook footer buttons
 - Webinar title and cadence
 - Offer, FAQ, and resource copy
 
-YouTube default: `https://www.youtube.com/@LonelyOwner`  
-Facebook default: `https://www.facebook.com/LonelyOwner`
+There are no social profile links on the site.
 
 ## Routes
 

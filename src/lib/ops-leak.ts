@@ -184,6 +184,12 @@ export type OpsLeakRequest = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function isIpAddress(hostname: string): boolean {
+  const bare = hostname.replace(/^\[|\]$/g, "");
+  if (bare.includes(":")) return true;
+  return /^(?:\d{1,3}\.){3}\d{1,3}$/.test(bare);
+}
+
 export function normalizeOpsLeakWebsite(raw: string): string | null {
   const trimmed = raw.trim();
   if (!trimmed || trimmed.length > 300) return null;
@@ -203,7 +209,8 @@ export function normalizeOpsLeakWebsite(raw: string): string | null {
   if (
     host === "localhost" ||
     host.endsWith(".local") ||
-    host.endsWith(".localhost")
+    host.endsWith(".localhost") ||
+    isIpAddress(host)
   ) {
     return null;
   }

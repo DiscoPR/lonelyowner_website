@@ -8,10 +8,6 @@ export const site = {
   tagline: "The blueprint for better outcomes",
   calendly: "https://calendly.com/trainedbykevin/letsmeet",
   primaryCtaLabel: "Book a 15-minute audit call",
-  social: {
-    youtube: "https://www.youtube.com/@LonelyOwner",
-    facebook: "https://www.facebook.com/LonelyOwner",
-  },
   webinar: {
     title: "AI Basics for Blue Collar Businesses",
     cadence: "Wednesday at noon Eastern",
@@ -236,7 +232,6 @@ export function organizationJsonLd() {
     description:
       "AI Opportunity Audit and shop systems for owner-operated trades. Bots draft. The owner sends.",
     areaServed: "United States",
-    sameAs: [site.social.youtube, site.social.facebook],
   };
 }
 
