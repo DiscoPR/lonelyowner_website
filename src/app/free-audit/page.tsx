@@ -15,7 +15,7 @@ import {
   opsLeakSteps,
   opsLeakTrust,
 } from "@/lib/ops-leak";
-import { offer, site } from "@/lib/site";
+import { grokBots, offer, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Free Ops Leak Score for Trade Shops",
@@ -253,7 +253,16 @@ export default function FreeAuditPage() {
             The free Ops Leak Score shows where you are leaking. The AI
             Opportunity Audit ({offer.auditPrice}) is the working session that
             maps the highest-priority fix to your shop, what a bot should
-            handle, and what stays human.
+            handle, and what stays human. The other offer is Grok bot setup:{" "}
+            {grokBots.three.price} for 3 bots, or {grokBots.seven.price} for a
+            suite of 7, both flat.{" "}
+            <Link
+              className="underline decoration-copper/60 underline-offset-4"
+              href="/#grok-bots"
+            >
+              See Grok bot setup
+            </Link>
+            .
           </p>
           <div className="mt-8 max-w-3xl border border-ink/15 bg-cream p-6 sm:p-8">
             <h3 className="font-serif text-2xl">

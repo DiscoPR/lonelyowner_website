@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { opsLeakPath } from "@/lib/ops-leak";
 import { site } from "@/lib/site";
 
 export function Footer() {
@@ -26,6 +27,16 @@ export function Footer() {
               >
                 {site.primaryCtaLabel}
               </a>
+            </li>
+            <li>
+              <Link className="hover:text-copper-hot" href={opsLeakPath}>
+                Free audit
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-copper-hot" href="/#grok-bots">
+                Grok bots
+              </Link>
             </li>
             <li>
               <Link className="hover:text-copper-hot" href="/privacy">
