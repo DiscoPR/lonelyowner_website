@@ -11,22 +11,44 @@ import {
   opsLeakNotFit,
   opsLeakPath,
   opsLeakProcessTrust,
-  opsLeakSample,
   opsLeakSteps,
   opsLeakTrust,
 } from "@/lib/ops-leak";
-import { grokBots, offer, site } from "@/lib/site";
+import {
+  grokAccountNote,
+  grokBots,
+  grokGuarantee,
+  setups,
+  site,
+  websiteScope,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Free Ops Leak Score for Trade Shops",
+  title: "Free Job Leak Audit for Trade Shops",
   description:
-    "Paste your website. Get a free 5-area ops leak score for HVAC, plumbing, docks, roll-off, construction, and shops. See where jobs die after hours, then book the $999 AI Opportunity Audit.",
+    "Paste your website. We check it the way your customers do, on a phone, and show you where jobs slip away. Free for HVAC, plumbing, marine, roll-off, construction, and shops. No credit card.",
+  keywords: [
+    "Free Job Leak Audit",
+    "owner operated trades",
+    "HVAC",
+    "plumbing",
+    "marine",
+    "roll-off",
+    "construction",
+    "shops",
+  ],
   alternates: { canonical: `${site.url}${opsLeakPath}` },
   openGraph: {
-    title: "Where is your shop leaking jobs?",
+    title: "More calls answered. More jobs booked.",
     description:
-      "Free Ops Leak Score for owner-operated trades. We email a 5-area summary. It is not a live scanner.",
+      "Free Job Leak Audit for owner-operated trades. We email a report after a look at public pages. It is not a live scanner. No credit card.",
     url: `${site.url}${opsLeakPath}`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "More calls answered. More jobs booked.",
+    description:
+      "Free Job Leak Audit for owner-operated trades. We email a report after a look at public pages. No credit card.",
   },
 };
 
@@ -39,24 +61,20 @@ export default function FreeAuditPage() {
         <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-24">
           <div>
             <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-              Free Ops Leak Score
+              Free Job Leak Audit
             </p>
             <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight text-cream sm:text-6xl">
-              Where is your shop leaking jobs?
+              More calls answered. More jobs booked.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-cream/78">
-              Paste your business website. Get a free Ops Leak Score across 5
-              areas that cost owner-operated trades money: after-hours calls,
-              quote intake, owner bottleneck, scheduling friction, and trust
-              gaps.
+              Paste your website. We check it the way your customers do, on a
+              phone, and show you where jobs slip away: missed after-hours
+              calls, a quote form nobody can find, no call button. Free. No
+              credit card.
             </p>
             <p className="mt-4 max-w-xl leading-7 text-cream/70">
               Built for HVAC, plumbing, docks and marine, trash and roll-off,
               construction, and one-owner shops. Not for SaaS. Not for agencies.
-            </p>
-            <p className="mt-6 max-w-xl text-sm leading-6 text-muted">
-              No credit card. No 40-page deck. A plain score summary, then you
-              decide if the full audit is worth it.
             </p>
           </div>
           <OpsLeakForm />
@@ -69,27 +87,22 @@ export default function FreeAuditPage() {
             What you get
           </p>
           <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            Your free Ops Leak Score covers 5 areas
+            Your Free Job Leak Audit shows your top leaks and the first fix
           </h2>
           <ol className="mt-10 grid gap-4 md:grid-cols-2">
             {opsLeakAreas.map((area, index) => (
               <li key={area.name} className="border border-cream/10 p-6">
                 <p className="font-serif text-sm tracking-[0.16em] text-copper">
-                  {String(index + 1).padStart(2, "0")} · 0 to 20
+                  {String(index + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 font-serif text-2xl">{area.name}</h3>
                 <p className="mt-3 leading-7 text-cream/72">{area.body}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-8 max-w-3xl leading-7 text-cream/75">
-            Each area gets a simple score from 0 to 20. The total is your Ops
-            Leak Score out of 100. Higher means tighter ops. Lower means more
-            jobs leaking.
-          </p>
-          <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
-            Free scores are a diagnostic summary. This page does not run a live
-            scanner. Full findings and a fix plan are in the paid audit.
+          <p className="mt-8 max-w-3xl text-sm leading-6 text-muted">
+            This page does not run a live scanner. We email the report after a
+            look at public pages.
           </p>
         </div>
       </section>
@@ -116,74 +129,6 @@ export default function FreeAuditPage() {
         </div>
       </section>
 
-      <section className="paper-grid border-b border-ink/10 text-ink">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-            Preview only
-          </p>
-          <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            A sample score card. Not your score.
-          </h2>
-          <p className="mt-4 max-w-2xl leading-7 text-ink-soft">
-            Example shop: {opsLeakSample.domain}. These numbers are placeholders
-            so you can see the layout. They are not a real client, and they are
-            not a live scan.
-          </p>
-
-          <article className="mt-10 border border-ink/15 bg-cream p-6 shadow-sm sm:p-8">
-            <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-              Preview only. Not a real client score.
-            </p>
-            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="font-serif text-5xl tracking-tight sm:text-6xl">
-                  {opsLeakSample.total}
-                  <span className="text-2xl text-ink-soft"> / 100</span>
-                </p>
-                <p className="mt-2 text-lg text-ink-soft">{opsLeakSample.band}</p>
-              </div>
-              <p className="max-w-sm text-sm leading-6 text-ink-soft">
-                {opsLeakSample.takeaway}
-              </p>
-            </div>
-
-            <ul className="mt-8 space-y-5">
-              {opsLeakSample.areas.map((area) => (
-                <li key={area.name}>
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-serif text-xl">{area.name}</h3>
-                    <p className="shrink-0 font-semibold text-ink">
-                      {area.score}/20
-                    </p>
-                  </div>
-                  <div
-                    className="mt-2 h-2 bg-sand"
-                    role="img"
-                    aria-label={`${area.name} sample score ${area.score} out of 20`}
-                  >
-                    <div
-                      className="h-2 bg-copper"
-                      style={{ width: `${(area.score / 20) * 100}%` }}
-                    />
-                  </div>
-                  <p className="mt-2 text-sm leading-6 text-ink-soft">{area.note}</p>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 border border-ink/10 bg-sand/50 p-5">
-              <h3 className="font-serif text-2xl">Biggest leak (sample)</h3>
-              <p className="mt-2 leading-7 text-ink-soft">
-                {opsLeakSample.biggestLeak}
-              </p>
-            </div>
-          </article>
-          <p className="mt-6 max-w-3xl leading-7 text-ink-soft">
-            That is the free layer. The paid audit maps the fix to your shop.
-          </p>
-        </div>
-      </section>
-
       <section className="border-b border-cream/10 bg-ink">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
@@ -194,9 +139,9 @@ export default function FreeAuditPage() {
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-cream/75">
             You are the closer, the dispatcher, and the after-hours phone. You
-            do not need another AI strategy workshop. You need to know which
-            ops leaks are costing real jobs, and a clear plan to plug them
-            without hiring a full admin team.
+            do not need another strategy workshop. You need to know which ops
+            leaks are costing real jobs, and a clear plan to plug them without
+            hiring a full admin team.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <div className="border border-cream/10 p-6">
@@ -244,57 +189,49 @@ export default function FreeAuditPage() {
       <section className="paper-grid text-ink">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-            Paid audit
+            Setups
           </p>
           <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            Ready for the full picture?
+            Ready for the fix?
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-ink-soft">
-            The free Ops Leak Score shows where you are leaking. The AI
-            Opportunity Audit ({offer.auditPrice}) is the working session that
-            maps the highest-priority fix to your shop, what a bot should
-            handle, and what stays human. The other offer is Grok bot setup:{" "}
-            {grokBots.three.price} for 3 bots, or {grokBots.seven.price} for a
-            suite of 7, both flat.{" "}
-            <Link
-              className="underline decoration-copper/60 underline-offset-4"
-              href="/#grok-bots"
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <article className="border border-ink/15 bg-cream p-6 sm:p-8">
+              <h3 className="font-serif text-2xl">{setups.frontDesk.name}</h3>
+              <p className="mt-4 text-lg leading-8 text-ink-soft">
+                {setups.frontDesk.countLabel} set up for {grokBots.three.price},
+                one time. {setups.frontDesk.tagline}
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-ink-soft">
+                {grokBots.three.bots.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="border border-ink/15 bg-sand/60 p-6 sm:p-8">
+              <h3 className="font-serif text-2xl">{setups.fullCrew.name}</h3>
+              <p className="mt-4 text-lg leading-8 text-ink-soft">
+                {setups.fullCrew.countLabel} set up for {grokBots.seven.price},
+                one time. {setups.fullCrew.tagline} You approve what goes to
+                customers.
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-ink-soft">
+                {[...grokBots.three.bots, ...grokBots.seven.bots].map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+          <p className="mt-8 max-w-3xl leading-7 text-ink-soft">{grokAccountNote}</p>
+          <p className="mt-3 max-w-3xl leading-7 text-ink-soft">{grokGuarantee}</p>
+          <p className="mt-3 max-w-3xl leading-7 text-ink-soft">{websiteScope}</p>
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <CtaLink href="/#grok-bots">See bot setups</CtaLink>
+            <CtaLink
+              variant="secondary"
+              className="!border-ink/25 !text-ink hover:!border-ink/50 hover:!bg-ink/5"
             >
-              See Grok bot setup
-            </Link>
-            .
-          </p>
-          <div className="mt-8 max-w-3xl border border-ink/15 bg-cream p-6 sm:p-8">
-            <h3 className="font-serif text-2xl">
-              What is in the paid audit
-            </h3>
-            <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-ink-soft">
-              <li>
-                A deeper pass on the same 5 areas, with evidence from your
-                public site and call notes if you book
-              </li>
-              <li>One primary recommendation, not a laundry list</li>
-              <li>What to automate first, and what to leave alone</li>
-              <li>
-                A clear next step for implementation. You stay in control. Bots
-                draft. You send.
-              </li>
-            </ul>
-            <p className="mt-5 leading-7 text-ink-soft">
-              Price: {offer.auditPrice}. Working session plus written findings.
-              Often credited toward implementation if you continue. The free
-              summary is the teaser. The {offer.auditPrice} audit is the
-              deliverable.
-            </p>
-            <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <CtaLink>Book the AI Opportunity Audit</CtaLink>
-              <CtaLink
-                variant="secondary"
-                className="!border-ink/25 !text-ink hover:!border-ink/50 hover:!bg-ink/5"
-              >
-                Book a short fit call first
-              </CtaLink>
-            </div>
+              {site.primaryCtaLabel}
+            </CtaLink>
           </div>
         </div>
       </section>
@@ -329,10 +266,12 @@ export default function FreeAuditPage() {
             </Link>
             {" · "}
             <Link className="underline decoration-copper/60 underline-offset-4 hover:text-cream" href={opsLeakPath}>
-              Free Ops Leak Score
+              Free Job Leak Audit
             </Link>
             {" · "}
-            AI Opportunity Audit ({offer.auditPrice})
+            <Link className="underline decoration-copper/60 underline-offset-4 hover:text-cream" href="/#grok-bots">
+              {setups.frontDesk.name} and {setups.fullCrew.name}
+            </Link>
             {" · "}
             <a
               className="underline decoration-copper/60 underline-offset-4 hover:text-cream"

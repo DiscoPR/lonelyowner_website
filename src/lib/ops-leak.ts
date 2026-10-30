@@ -1,31 +1,11 @@
 /**
- * Free Ops Leak Score. Copy follows the approved landing draft.
- * There is no live scorer. v1 asks the visitor to email the request.
- * Contact details here are for that deliverable only. Do not render them
- * in the site header, footer, homepage, or JSON-LD.
+ * Free Job Leak Audit page copy. There is no live scanner.
+ * The form posts to POST /api/free-audit, the same route as the homepage.
  */
 
 import { grokAccountNote } from "@/lib/site";
 
 export const opsLeakPath = "/free-audit" as const;
-
-export const opsLeakContact = {
-  email: "kevin.andreosky@gmail.com",
-  phoneDisplay: "732-232-5358",
-  phoneHref: "tel:+17322325358",
-} as const;
-
-export const opsLeakTrades = [
-  "HVAC",
-  "Plumbing",
-  "Docks & marine",
-  "Trash & roll-off",
-  "Construction",
-  "Shop",
-  "Other",
-] as const;
-
-export type OpsLeakTrade = (typeof opsLeakTrades)[number];
 
 export const opsLeakAreas = [
   {
@@ -50,43 +30,6 @@ export const opsLeakAreas = [
   },
 ] as const;
 
-/** Layout sample only. Not a client, and not a live score. */
-export const opsLeakSample = {
-  domain: "example-hvac.com",
-  total: 52,
-  band: "Moderate leak risk",
-  takeaway: "Some paths work. One or two gaps still cost real leads.",
-  biggestLeak:
-    "After-hours and owner bottleneck. Jobs that come in when you are on a roof or a barge have nowhere clean to land.",
-  areas: [
-    {
-      name: "After-hours capture",
-      score: 8,
-      note: 'Form open. No clear after-hours path beyond "call us."',
-    },
-    {
-      name: "Quote and estimate intake",
-      score: 11,
-      note: "Estimate CTA exists. Phone optional. No SLA language.",
-    },
-    {
-      name: "Owner bottleneck",
-      score: 7,
-      note: "Contact paths point to one inbox and one person.",
-    },
-    {
-      name: "Scheduling and dispatch friction",
-      score: 12,
-      note: "Hours listed. No self-booking. Callback implied.",
-    },
-    {
-      name: "Trust and contact clarity",
-      score: 14,
-      note: "Phone and hours mostly consistent. Reviews present but static.",
-    },
-  ],
-} as const;
-
 export const opsLeakSteps = [
   {
     n: "01",
@@ -96,12 +39,12 @@ export const opsLeakSteps = [
   {
     n: "02",
     title: "Confirm your email",
-    body: "We send the free score summary to you. It is not a sales blast to your whole company list.",
+    body: "We send the Free Job Leak Audit to you. It is not a sales blast to your whole company list.",
   },
   {
     n: "03",
-    title: "Get your score summary",
-    body: "The summary shows the 5 area scores, the biggest leak, and whether a full AI Opportunity Audit is worth booking.",
+    title: "Get your leak report",
+    body: "You get your top leaks and the first fix.",
   },
 ] as const;
 
@@ -109,7 +52,7 @@ export const opsLeakFit = [
   "Run HVAC, plumbing, docks and marine, trash and roll-off, construction, or a trade shop",
   "Own the business (or co-own) and still touch intake yourself",
   "Lose leads nights, weekends, or while you are on site",
-  "Want AI that drafts and routes. You still approve what goes to customers",
+  "Want help that answers, drafts, and routes. You still approve what goes to customers",
 ] as const;
 
 export const opsLeakNotFit = [
@@ -119,47 +62,38 @@ export const opsLeakNotFit = [
 ] as const;
 
 export const opsLeakTrust = [
-  "Public pages only. No system access for the free score.",
+  "Public pages only. No system access for the free audit.",
   "Owner-operator language. Written for shop owners, not marketing managers.",
   "Trades first. HVAC, plumbing, docks, roll-off, construction, shops.",
-  "The paid audit is a working session, not a 60-slide PDF graveyard.",
-  "$999, credited toward implementation if you continue.",
+  "You approve what goes to customers.",
 ] as const;
 
 export const opsLeakProcessTrust = [
   "We only review what a customer can already see.",
-  "You get a score summary before anyone asks for money.",
-  "The full audit is credited toward implementation if you move forward.",
+  "You get the report before anyone asks for money.",
+  "Asking for the free audit does not start paid work.",
 ] as const;
 
 export const opsLeakFaqs = [
   {
-    q: "Is the Ops Leak Score really free?",
-    a: "Yes. Paste your URL and email. You get the 5-area summary. No card required.",
+    q: "Is the Free Job Leak Audit really free?",
+    a: "Yes. Paste your URL and email. You get the report. No card required.",
   },
   {
     q: "Do you need access to my CRM, phone system, or email?",
-    a: "Not for the free score. Public website pages only. A deeper look at your systems is optional in the paid audit if you choose to share.",
+    a: "Not for the free audit. Public website pages only.",
   },
   {
     q: "Who is this for?",
     a: "Owner-operated trades: HVAC, plumbing, docks and marine, trash and roll-off, construction, and shops. If everything still hits your personal phone, you are the audience.",
   },
   {
-    q: "What do the scores mean?",
-    a: "Each of 5 areas is scored 0 to 20. The total is out of 100. Higher means tighter ops. Lower means more jobs leaking: missed after-hours work, a weak quote path, or the owner as the bottleneck.",
-  },
-  {
     q: "Is this a live automated tool?",
-    a: "No. This page does not show a live score. We review public pages and email the free score summary. The PDF is prepared for you. It is not a production scanner.",
-  },
-  {
-    q: "What is the paid audit?",
-    a: "The AI Opportunity Audit is $999. It is a working session that turns the leak map into a first fix and an implementation path. On this site that session is the One Call Audit. If you move forward, the $999 is credited toward implementation.",
+    a: "No. We review public pages and email the Free Job Leak Audit. It is not a live scanner.",
   },
   {
     q: "Will you spam me?",
-    a: "We email your score summary and relevant next steps. You can opt out. We do not sell your list.",
+    a: "We email your report and relevant next steps. You can opt out. We do not sell your list.",
   },
   {
     q: "Can my competitor run this on my site?",
@@ -167,147 +101,9 @@ export const opsLeakFaqs = [
   },
   {
     q: "Do you build the bots for me?",
-    a: `Yes. ${grokAccountNote}`,
+    a: `Yes. Front Desk is 3 bots for $297, one time. Full Crew is 7 bots for $500, one time. Full Crew is Front Desk plus follow-ups, scheduling and review requests. You approve what goes to customers. Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay. Works with your website. Phone setup is scoped on your audit call. ${grokAccountNote}`,
   },
 ] as const;
-
-export type OpsLeakFieldErrors = {
-  website?: string;
-  email?: string;
-};
-
-export type OpsLeakRequest = {
-  website: string;
-  email: string;
-  trade: string;
-  domain: string;
-  mailto: string;
-};
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function isIpAddress(hostname: string): boolean {
-  const bare = hostname.replace(/^\[|\]$/g, "");
-  if (bare.includes(":")) return true;
-  return /^(?:\d{1,3}\.){3}\d{1,3}$/.test(bare);
-}
-
-export function normalizeOpsLeakWebsite(raw: string): string | null {
-  const trimmed = raw.trim();
-  if (!trimmed || trimmed.length > 300) return null;
-  const withProtocol = /^https?:\/\//i.test(trimmed)
-    ? trimmed
-    : `https://${trimmed}`;
-  let url: URL;
-  try {
-    url = new URL(withProtocol);
-  } catch {
-    return null;
-  }
-  if (url.protocol !== "http:" && url.protocol !== "https:") return null;
-  if (url.username || url.password) return null;
-  const host = url.hostname.toLowerCase();
-  if (!host.includes(".") || host.endsWith(".")) return null;
-  if (
-    host === "localhost" ||
-    host.endsWith(".local") ||
-    host.endsWith(".localhost") ||
-    isIpAddress(host)
-  ) {
-    return null;
-  }
-  return url.toString();
-}
-
-export function opsLeakDomain(website: string): string {
-  try {
-    return new URL(website).hostname.replace(/^www\./, "");
-  } catch {
-    return website;
-  }
-}
-
-export function isOpsLeakTrade(value: string): value is OpsLeakTrade {
-  return (opsLeakTrades as readonly string[]).includes(value);
-}
-
-export function buildOpsLeakMailto(input: {
-  website: string;
-  email: string;
-  trade: string;
-  domain: string;
-}): string {
-  const subject = `Ops Leak Score request for ${input.domain}`;
-  const body = [
-    "Free Ops Leak Score request",
-    "",
-    `Website: ${input.website}`,
-    `Email for the summary: ${input.email}`,
-    `Trade: ${input.trade || "Not provided"}`,
-    "",
-    "Please review public pages only and email the Ops Leak Score PDF.",
-    "No live score was shown on the site.",
-  ].join("\n");
-
-  return `mailto:${opsLeakContact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-export function parseOpsLeakSubmission(input: {
-  website: string;
-  email: string;
-  trade: string;
-  company: string;
-}):
-  | { ok: true; bot: true }
-  | { ok: true; bot: false; request: OpsLeakRequest }
-  | { ok: false; errors: OpsLeakFieldErrors } {
-  if (input.company.trim()) {
-    return { ok: true, bot: true };
-  }
-
-  const errors: OpsLeakFieldErrors = {};
-  const website = normalizeOpsLeakWebsite(input.website);
-  const email = input.email.trim().toLowerCase();
-  const trade = input.trade.trim();
-
-  if (!input.website.trim()) {
-    errors.website = "Enter your business website.";
-  } else if (!website) {
-    errors.website = "Use a full website address, like https://yourshop.com.";
-  } else if (
-    opsLeakDomain(website) === "yourshop.com" ||
-    opsLeakDomain(website) === "example.com"
-  ) {
-    errors.website = "Use your real shop website, not the sample.";
-  }
-
-  if (!input.email.trim()) {
-    errors.email = "Enter the email where we should send the summary.";
-  } else if (!emailPattern.test(email) || email.length > 200) {
-    errors.email = "Use a real inbox, like you@yourshop.com.";
-  }
-
-  if (Object.keys(errors).length > 0 || !website) {
-    return { ok: false, errors };
-  }
-
-  const cleanTrade = isOpsLeakTrade(trade) ? trade : "";
-  const domain = opsLeakDomain(website);
-  const request: OpsLeakRequest = {
-    website,
-    email,
-    trade: cleanTrade,
-    domain,
-    mailto: buildOpsLeakMailto({
-      website,
-      email,
-      trade: cleanTrade,
-      domain,
-    }),
-  };
-
-  return { ok: true, bot: false, request };
-}
 
 export function opsLeakFaqJsonLd() {
   return {

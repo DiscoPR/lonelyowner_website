@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 // Fonts are self-hosted by next/font. Calendly is an outbound link, not an
-// embed, and the free-audit form opens a mailto link. There is no analytics
+// embed, and the free-audit form posts to this site. There is no analytics
 // script. 'unsafe-inline' covers Next's bootstrap scripts, JSON-LD, and the
 // font style tag. A nonce policy would force every page to render dynamically.
 const isDev = process.env.NODE_ENV === "development";

@@ -1,153 +1,112 @@
 "use client";
 
-import { type FormEvent, useId, useRef, useState } from "react";
-import { CtaLink } from "@/components/CtaLink";
+import { type FormEvent, useId, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
-  opsLeakContact,
-  opsLeakTrades,
-  parseOpsLeakSubmission,
-  type OpsLeakFieldErrors,
-  type OpsLeakRequest,
-} from "@/lib/ops-leak";
+  auditTrades,
+  parseAuditLead,
+  type AuditFieldErrors,
+} from "@/lib/audit-lead";
 import { site } from "@/lib/site";
 
-function calendlyFor(email: string) {
-  const url = new URL(site.calendly);
-  url.searchParams.set("email", email);
-  return url.toString();
-}
-
-function openMailto(href: string) {
-  const anchor = document.createElement("a");
-  anchor.href = href;
-  anchor.rel = "noopener";
-  document.body.appendChild(anchor);
-  anchor.click();
-  anchor.remove();
-}
-
 export function OpsLeakForm() {
+  const router = useRouter();
   const formId = useId();
   const websiteId = `${formId}-website`;
   const emailId = `${formId}-email`;
   const tradeId = `${formId}-trade`;
   const websiteErrorId = `${formId}-website-error`;
   const emailErrorId = `${formId}-email-error`;
-  const thanksRef = useRef<HTMLHeadingElement>(null);
+  const tradeErrorId = `${formId}-trade-error`;
+  const formErrorId = `${formId}-form-error`;
 
   const [website, setWebsite] = useState("");
   const [email, setEmail] = useState("");
   const [trade, setTrade] = useState("");
   const [company, setCompany] = useState("");
-  const [errors, setErrors] = useState<OpsLeakFieldErrors>({});
-  const [request, setRequest] = useState<OpsLeakRequest | null>(null);
-  const [botThankYou, setBotThankYou] = useState(false);
+  const [errors, setErrors] = useState<AuditFieldErrors>({});
+  const [sendFailed, setSendFailed] = useState(false);
+  const [pending, setPending] = useState(false);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const parsed = parseOpsLeakSubmission({ website, email, trade, company });
+    if (pending) return;
+
+    const phone = "";
+    const parsed = parseAuditLead({ website, email, trade, phone, company });
     if (!parsed.ok) {
       setErrors(parsed.errors);
+      setSendFailed(false);
+      const focusId = parsed.errors.website
+        ? websiteId
+        : parsed.errors.email
+          ? emailId
+          : tradeId;
+      queueMicrotask(() => document.getElementById(focusId)?.focus());
       return;
     }
+
     setErrors({});
-    if (parsed.bot) {
-      setBotThankYou(true);
-      queueMicrotask(() => thanksRef.current?.focus());
-      return;
+    setSendFailed(false);
+    setPending(true);
+
+    try {
+      const response = await fetch("/api/free-audit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ website, email, trade, phone, company }),
+      });
+      const payload: unknown = await response.json().catch(() => null);
+      const fieldErrors =
+        payload &&
+        typeof payload === "object" &&
+        "errors" in payload &&
+        payload.errors &&
+        typeof payload.errors === "object"
+          ? (payload.errors as AuditFieldErrors)
+          : null;
+      const failed =
+        !response.ok ||
+        !(
+          payload &&
+          typeof payload === "object" &&
+          "ok" in payload &&
+          payload.ok === true
+        );
+
+      if (failed) {
+        if (fieldErrors && (fieldErrors.website || fieldErrors.email || fieldErrors.trade)) {
+          setErrors(fieldErrors);
+          setSendFailed(false);
+        } else {
+          setSendFailed(true);
+        }
+        return;
+      }
+
+      router.push("/thank-you");
+    } catch {
+      setSendFailed(true);
+    } finally {
+      setPending(false);
     }
-    setRequest(parsed.request);
-    queueMicrotask(() => {
-      thanksRef.current?.focus();
-      openMailto(parsed.request.mailto);
-    });
-  }
-
-  if (botThankYou || request) {
-    const summaryEmail = request?.email ?? email;
-    const domain = request?.domain;
-    const fitCall = request ? calendlyFor(request.email) : site.calendly;
-
-    return (
-      <div className="border border-cream/15 bg-shop p-6 sm:p-7" role="status">
-        <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-          Score request
-        </p>
-        <h2
-          ref={thanksRef}
-          tabIndex={-1}
-          className="mt-3 font-serif text-3xl tracking-tight text-cream outline-none"
-        >
-          Got it. Your Ops Leak Score PDF is being prepared.
-        </h2>
-        <p className="mt-4 leading-7 text-cream/78">
-          {domain ? (
-            <>
-              We will email the 5-area summary for{" "}
-              <span className="text-cream">{domain}</span> to{" "}
-              <span className="text-cream">{summaryEmail}</span>.
-            </>
-          ) : (
-            <>
-              We will email the 5-area summary to{" "}
-              <span className="text-cream">{summaryEmail}</span>.
-            </>
-          )}{" "}
-          It flags the biggest leak. This page does not show a live score.
-        </p>
-        {request ? (
-          <p className="mt-3 leading-7 text-cream/72">
-            Send the note your mail app opened. That note is how we get the
-            website. If it did not open, use the button below.
-          </p>
-        ) : null}
-
-        <div className="mt-6 flex flex-col items-start gap-3">
-          {request ? (
-            <a className="cta-secondary w-full sm:w-auto" href={request.mailto}>
-              Open the request email
-            </a>
-          ) : null}
-          <CtaLink className="w-full sm:w-auto" href={fitCall}>
-            Book the AI Opportunity Audit
-          </CtaLink>
-          <CtaLink
-            className="w-full sm:w-auto"
-            href={fitCall}
-            variant="secondary"
-          >
-            Book a short fit call
-          </CtaLink>
-        </div>
-        <p className="mt-4 text-sm leading-6 text-muted">
-          The fit call is about 15 minutes. It is for the $999 AI Opportunity
-          Audit. If the summary shows a clear money leak, book while it is
-          top of mind.
-        </p>
-        <p className="mt-4 text-sm leading-6 text-cream/70">
-          Didn&apos;t get the email? Check spam, then reply from the address
-          you used so we can resend.{" "}
-          <a className="underline decoration-copper/70 underline-offset-4 hover:text-cream" href={`mailto:${opsLeakContact.email}`}>
-            {opsLeakContact.email}
-          </a>
-          {" · "}
-          <a className="underline decoration-copper/70 underline-offset-4 hover:text-cream" href={opsLeakContact.phoneHref}>
-            {opsLeakContact.phoneDisplay}
-          </a>
-        </p>
-      </div>
-    );
   }
 
   return (
     <form
       className="relative border border-cream/15 bg-shop p-6 sm:p-7"
+      action="/api/free-audit"
+      method="post"
       onSubmit={onSubmit}
       noValidate
+      aria-busy={pending}
     >
-      <h2 className="font-serif text-2xl text-cream">Get your free Ops Leak Score</h2>
+      <h2 className="font-serif text-2xl text-cream">Get your Free Job Leak Audit</h2>
       <p className="mt-2 text-sm leading-6 text-muted">
-        URL and email. We email the summary after a look at public pages.
+        URL and email. We email the report after a look at public pages.
       </p>
 
       <div className="mt-5 space-y-4">
@@ -182,7 +141,7 @@ export function OpsLeakForm() {
 
         <div>
           <label htmlFor={emailId} className="block text-sm font-semibold text-cream">
-            Where should we send the summary?
+            Where should we send the report?
           </label>
           <input
             id={emailId}
@@ -217,16 +176,23 @@ export function OpsLeakForm() {
             id={tradeId}
             name="trade"
             value={trade}
+            aria-invalid={errors.trade ? true : undefined}
+            aria-describedby={errors.trade ? tradeErrorId : undefined}
             onChange={(event) => setTrade(event.target.value)}
             className="mt-2 w-full min-h-12 rounded-sm border border-cream/20 bg-ink px-3 text-base text-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper"
           >
             <option value="">Select if you want</option>
-            {opsLeakTrades.map((item) => (
+            {auditTrades.map((item) => (
               <option key={item} value={item}>
                 {item}
               </option>
             ))}
           </select>
+          {errors.trade ? (
+            <p id={tradeErrorId} className="mt-1 text-sm text-copper-hot" role="alert">
+              {errors.trade}
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -243,12 +209,39 @@ export function OpsLeakForm() {
         />
       </p>
 
-      <button type="submit" className="cta-primary mt-6 w-full">
-        Check my ops leaks
+      {sendFailed ? (
+        <p id={formErrorId} className="mt-5 text-sm leading-6 text-copper-hot" role="alert">
+          Something went wrong sending your request. Email Kevin at{" "}
+          <a
+            className="font-semibold underline decoration-copper/70 underline-offset-4"
+            href={`mailto:${site.kevinEmail}`}
+          >
+            {site.kevinEmail}
+          </a>{" "}
+          or{" "}
+          <a
+            className="font-semibold underline decoration-copper/70 underline-offset-4"
+            href={site.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            book a call
+          </a>
+          .
+        </p>
+      ) : null}
+
+      <button
+        type="submit"
+        className="cta-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-60"
+        disabled={pending}
+        aria-describedby={sendFailed ? formErrorId : undefined}
+      >
+        {pending ? "Sending..." : "Check my ops leaks"}
       </button>
       <p className="mt-3 text-sm leading-6 text-muted">
-        Free summary. Your email app opens a note for you to send. We email
-        the score back. Not a live scanner.
+        Free Job Leak Audit. We email the report after a look at public pages.
+        Not a live scanner.
       </p>
       <p className="mt-2 text-xs leading-5 text-muted">
         We use your URL to review public pages only. We do not log into your
