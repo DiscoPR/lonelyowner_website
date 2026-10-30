@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Lonely Owner. The after-hours call is a job.";
+export const alt = "Lonely Owner. More calls answered. More jobs booked.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,10 +54,10 @@ export default function OpenGraphImage() {
               fontWeight: 600,
             }}
           >
-            The after-hours call is a job. Voicemail is how you lose it.
+            More calls answered. More jobs booked.
           </div>
           <div style={{ fontSize: 28, color: "#c67b3a" }}>
-            The blueprint for better outcomes
+            Free Job Leak Audit. Flat setup price.
           </div>
         </div>
       </div>

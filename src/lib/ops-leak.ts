@@ -5,6 +5,8 @@
  * in the site header, footer, homepage, or JSON-LD.
  */
 
+import { grokAccountNote } from "@/lib/site";
+
 export const opsLeakPath = "/free-audit" as const;
 
 export const opsLeakContact = {
@@ -165,7 +167,7 @@ export const opsLeakFaqs = [
   },
   {
     q: "Do you build the bots for me?",
-    a: "Audit first. Implementation is separate. The $999 is credited toward implementation if you continue.",
+    a: `Yes. ${grokAccountNote}`,
   },
 ] as const;
 

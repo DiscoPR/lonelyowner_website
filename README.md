@@ -1,9 +1,23 @@
 # Lonely Owner
 
-Marketing site for [lonelyowner.com](https://lonelyowner.com). Next.js App Router. No environment variables required.
+Marketing site for [lonelyowner.com](https://lonelyowner.com). Next.js App Router.
 
 Founder: Kevin Andreosky  
-Primary CTA: [Book a 15-minute audit call](https://calendly.com/trainedbykevin/letsmeet)
+Homepage offer: Free Job Leak Audit, then Front Desk (3 bots, $297 one time) or Full Crew (7 bots, $500 one time).  
+Nav CTA: [Book a call](https://calendly.com/trainedbykevin/letsmeet)
+
+## Environment variables
+
+The site builds and runs with none set. The homepage form (`POST /api/free-audit`) emails the lead only when both of these are set:
+
+- `RESEND_API_KEY`: API key from [Resend](https://resend.com)
+- `AUDIT_FROM_EMAIL`: a verified Resend sender, such as `Lonely Owner <audits@your-verified-domain>`
+
+Optional:
+
+- `AUDIT_TO_EMAIL`: inbox that receives leads. Defaults to `kevin.andreosky@gmail.com`.
+
+If the key or from-address is missing, the form does not send and does not open the visitor's email app. It shows an error and asks them to try again.
 
 ## Local
 
@@ -30,7 +44,7 @@ Kevin can import this repo as-is. Nothing extra to configure.
    - Root Directory: `./`
    - Build Command: `next build` (default)
    - Output: default Next.js (do not set it to a static folder)
-   - **Environment Variables: none.** Leave this empty.
+   - **Environment Variables:** none are required for the build. To deliver homepage audit requests, set `RESEND_API_KEY` and `AUDIT_FROM_EMAIL` (see above). `AUDIT_TO_EMAIL` is optional.
 4. Deploy from the `main` branch.
 
 Production URLs after DNS:
@@ -78,7 +92,8 @@ There are no social profile links on the site.
 
 ## Routes
 
-- `/` homepage
+- `/` homepage (Free Job Leak Audit form, then Front Desk and Full Crew)
+- `/thank-you` confirmation after a homepage audit request (not indexed)
 - `/free-audit` free Ops Leak Score request (summary emailed after a public-page review; not a live scanner)
 - `/resources` shop jobs a bot should draft (owner still sends)
 - `/privacy` privacy policy
@@ -89,4 +104,4 @@ There are no social profile links on the site.
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Builds with zero required env vars
+- Builds with zero required env vars. Homepage lead email needs `RESEND_API_KEY` and `AUDIT_FROM_EMAIL`.

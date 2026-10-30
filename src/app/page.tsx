@@ -1,8 +1,12 @@
-import { Audits } from "@/components/home/Audits";
 import { Faq } from "@/components/home/Faq";
-import { GrokBots } from "@/components/home/GrokBots";
+import { FinalCta } from "@/components/home/FinalCta";
 import { Hero } from "@/components/home/Hero";
-import { Start } from "@/components/home/Start";
+import { InsteadOf } from "@/components/home/InsteadOf";
+import { Pain } from "@/components/home/Pain";
+import { Pricing } from "@/components/home/Pricing";
+import { SampleReport } from "@/components/home/SampleReport";
+import { Trust } from "@/components/home/Trust";
+import { Who } from "@/components/home/Who";
 import { JsonLd } from "@/components/JsonLd";
 import { faqJsonLd, organizationJsonLd } from "@/lib/site";
 
@@ -12,10 +16,14 @@ export default function Home() {
       <JsonLd data={organizationJsonLd()} />
       <JsonLd data={faqJsonLd()} />
       <Hero />
-      <Audits />
-      <GrokBots />
-      <Start />
+      <SampleReport />
+      <Pain />
+      <InsteadOf />
+      <Pricing />
+      <Who />
+      <Trust />
       <Faq />
+      <FinalCta />
     </>
   );
 }

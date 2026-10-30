@@ -19,23 +19,18 @@ export function Footer() {
           </p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a
-                className="hover:text-copper-hot"
-                href={site.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {site.primaryCtaLabel}
-              </a>
-            </li>
-            <li>
-              <Link className="hover:text-copper-hot" href={opsLeakPath}>
-                Free audit
+              <Link className="hover:text-copper-hot" href="/#audit-form">
+                Free Job Leak Audit
               </Link>
             </li>
             <li>
               <Link className="hover:text-copper-hot" href="/#grok-bots">
-                Grok bots
+                Setup prices
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-copper-hot" href={opsLeakPath}>
+                Free audit page
               </Link>
             </li>
             <li>

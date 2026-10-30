@@ -1,14 +1,37 @@
-import { faqs } from "@/lib/site";
+import { faqs, site, type HomeFaq } from "@/lib/site";
+
+function Answer({ item }: { item: HomeFaq }) {
+  if (!item.bookCall) {
+    return <p className="mt-3 leading-7 text-ink-soft">{item.a}</p>;
+  }
+
+  const [before, after] = item.a.split("book a call");
+  if (after === undefined) {
+    return <p className="mt-3 leading-7 text-ink-soft">{item.a}</p>;
+  }
+
+  return (
+    <p className="mt-3 leading-7 text-ink-soft">
+      {before}
+      <a
+        className="font-semibold text-ink underline decoration-copper/70 underline-offset-4"
+        href={site.calendly}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        book a call
+      </a>
+      {after}
+    </p>
+  );
+}
 
 export function Faq() {
   return (
     <section id="faq" className="paper-grid text-ink">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-        <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-          FAQ
-        </p>
-        <h2 className="mt-3 font-serif text-3xl tracking-tight sm:text-5xl">
-          Straight answers before you book.
+        <h2 className="font-serif text-3xl tracking-tight sm:text-5xl">
+          Questions about the free audit
         </h2>
         <div className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
           {faqs.map((item) => (
@@ -22,7 +45,7 @@ export function Faq() {
                   +
                 </span>
               </summary>
-              <p className="mt-3 leading-7 text-ink-soft">{item.a}</p>
+              <Answer item={item} />
             </details>
           ))}
         </div>
