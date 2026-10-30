@@ -99,15 +99,19 @@ export const faqs: readonly HomeFaq[] = [
   },
   {
     q: "Do I need new software?",
-    a: "No. Works with your website. Phone setup is scoped on your audit call. You do not need to buy a new office system to ask for the free audit or to start a setup.",
+    a: `No. Works with your website. Phone setup is scoped on your audit call. You do not need to buy a new office system to ask for the free audit or to start a setup. ${grokAccountNote}`,
   },
   {
     q: "What if my shop is tiny?",
     a: "This is built for a shop of one as much as a small crew. If you run the trucks, answer the phone, and still do the estimates, you are the fit.",
   },
   {
-    q: "How long does the audit take?",
+    q: "How fast are the bots live?",
     a: grokGuarantee,
+  },
+  {
+    q: "What do I get from the free audit?",
+    a: "You send your website. We email your Free Job Leak Audit.",
   },
   {
     q: "Who reads my info?",
