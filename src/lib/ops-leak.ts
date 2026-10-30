@@ -79,7 +79,7 @@ export const opsLeakSteps = [
   {
     n: "03",
     title: "Get your leak report",
-    body: "You see 2 or 3 screenshots of your own site on a phone, the biggest leak, and the one fix we would do first.",
+    body: "You get your top leaks and the first fix.",
   },
 ] as const;
 
@@ -140,7 +140,7 @@ export const opsLeakFaqs = [
   },
   {
     q: "Do you build the bots for me?",
-    a: "Yes. Front Desk is 3 bots for $297, flat. Full Crew is 7 bots for $500, flat. Full Crew is Front Desk plus follow-ups, scheduling and review requests. You approve what goes to customers.",
+    a: "Yes. Front Desk is 3 bots for $297, one time. Full Crew is 7 bots for $500, one time. Full Crew is Front Desk plus follow-ups, scheduling and review requests. You approve what goes to customers. Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay. Works with your website. Phone setup is scoped on your audit call.",
   },
 ] as const;
 

@@ -15,7 +15,7 @@ import {
   opsLeakSteps,
   opsLeakTrust,
 } from "@/lib/ops-leak";
-import { grokBots, setups, site } from "@/lib/site";
+import { grokBots, grokGuarantee, setups, site, websiteScope } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Free Job Leak Audit for Trade Shops",
@@ -84,8 +84,7 @@ export default function FreeAuditPage() {
             Your Free Job Leak Audit covers 5 areas
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-cream/75">
-            Phone screenshots of your own site, with each leak circled, plus a
-            score out of 100.
+            Your top leaks and the first fix.
           </p>
           <ol className="mt-10 grid gap-4 md:grid-cols-2">
             {opsLeakAreas.map((area, index) => (
@@ -194,8 +193,8 @@ export default function FreeAuditPage() {
             </div>
           </article>
           <p className="mt-6 max-w-3xl leading-7 text-ink-soft">
-            That is the free layer. If you want the leaks fixed, Front Desk and
-            Full Crew are a flat price.
+            That is the free layer. Front Desk is 3 bots for {grokBots.three.price}{" "}
+            one time. Full Crew is 7 bots for {grokBots.seven.price} one time.
           </p>
         </div>
       </section>
@@ -270,7 +269,7 @@ export default function FreeAuditPage() {
               <h3 className="font-serif text-2xl">{setups.frontDesk.name}</h3>
               <p className="mt-4 text-lg leading-8 text-ink-soft">
                 {setups.frontDesk.countLabel} set up for {grokBots.three.price},
-                flat. {setups.frontDesk.tagline}
+                one time. {setups.frontDesk.tagline}
               </p>
               <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-ink-soft">
                 {grokBots.three.bots.map((item) => (
@@ -282,7 +281,7 @@ export default function FreeAuditPage() {
               <h3 className="font-serif text-2xl">{setups.fullCrew.name}</h3>
               <p className="mt-4 text-lg leading-8 text-ink-soft">
                 {setups.fullCrew.countLabel} set up for {grokBots.seven.price},
-                flat. {setups.fullCrew.tagline} You approve what goes to
+                one time. {setups.fullCrew.tagline} You approve what goes to
                 customers.
               </p>
               <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-ink-soft">
@@ -292,6 +291,8 @@ export default function FreeAuditPage() {
               </ul>
             </article>
           </div>
+          <p className="mt-8 max-w-3xl leading-7 text-ink-soft">{grokGuarantee}</p>
+          <p className="mt-3 max-w-3xl leading-7 text-ink-soft">{websiteScope}</p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <CtaLink href="/#grok-bots">See bot setups</CtaLink>
             <CtaLink
