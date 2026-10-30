@@ -7,9 +7,7 @@ import {
   parseAuditLead,
   type AuditFieldErrors,
 } from "@/lib/audit-lead";
-
-const sendFailure =
-  "We could not send that just now. Please try again in a few minutes.";
+import { site } from "@/lib/site";
 
 export function OpsLeakForm() {
   const router = useRouter();
@@ -27,7 +25,7 @@ export function OpsLeakForm() {
   const [trade, setTrade] = useState("");
   const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<AuditFieldErrors>({});
-  const [formError, setFormError] = useState("");
+  const [sendFailed, setSendFailed] = useState(false);
   const [pending, setPending] = useState(false);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -38,7 +36,7 @@ export function OpsLeakForm() {
     const parsed = parseAuditLead({ website, email, trade, phone, company });
     if (!parsed.ok) {
       setErrors(parsed.errors);
-      setFormError("");
+      setSendFailed(false);
       const focusId = parsed.errors.website
         ? websiteId
         : parsed.errors.email
@@ -49,7 +47,7 @@ export function OpsLeakForm() {
     }
 
     setErrors({});
-    setFormError("");
+    setSendFailed(false);
     setPending(true);
 
     try {
@@ -62,13 +60,6 @@ export function OpsLeakForm() {
         body: JSON.stringify({ website, email, trade, phone, company }),
       });
       const payload: unknown = await response.json().catch(() => null);
-      const message =
-        payload &&
-        typeof payload === "object" &&
-        "message" in payload &&
-        typeof payload.message === "string"
-          ? payload.message
-          : "";
       const fieldErrors =
         payload &&
         typeof payload === "object" &&
@@ -77,24 +68,28 @@ export function OpsLeakForm() {
         typeof payload.errors === "object"
           ? (payload.errors as AuditFieldErrors)
           : null;
-
-      if (
+      const failed =
         !response.ok ||
-        (payload &&
+        !(
+          payload &&
           typeof payload === "object" &&
           "ok" in payload &&
-          payload.ok !== true)
-      ) {
+          payload.ok === true
+        );
+
+      if (failed) {
         if (fieldErrors && (fieldErrors.website || fieldErrors.email || fieldErrors.trade)) {
           setErrors(fieldErrors);
+          setSendFailed(false);
+        } else {
+          setSendFailed(true);
         }
-        setFormError(message || sendFailure);
         return;
       }
 
       router.push("/thank-you");
     } catch {
-      setFormError(sendFailure);
+      setSendFailed(true);
     } finally {
       setPending(false);
     }
@@ -214,9 +209,25 @@ export function OpsLeakForm() {
         />
       </p>
 
-      {formError ? (
+      {sendFailed ? (
         <p id={formErrorId} className="mt-5 text-sm leading-6 text-copper-hot" role="alert">
-          {formError}
+          Something went wrong sending your request. Email Kevin at{" "}
+          <a
+            className="font-semibold underline decoration-copper/70 underline-offset-4"
+            href={`mailto:${site.kevinEmail}`}
+          >
+            {site.kevinEmail}
+          </a>{" "}
+          or{" "}
+          <a
+            className="font-semibold underline decoration-copper/70 underline-offset-4"
+            href={site.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            book a call
+          </a>
+          .
         </p>
       ) : null}
 
@@ -224,7 +235,7 @@ export function OpsLeakForm() {
         type="submit"
         className="cta-primary mt-6 w-full disabled:cursor-not-allowed disabled:opacity-60"
         disabled={pending}
-        aria-describedby={formError ? formErrorId : undefined}
+        aria-describedby={sendFailed ? formErrorId : undefined}
       >
         {pending ? "Sending..." : "Check my ops leaks"}
       </button>
