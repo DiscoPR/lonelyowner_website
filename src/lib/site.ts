@@ -1,11 +1,40 @@
 import { opsLeakPath } from "@/lib/ops-leak";
 
+export const hero = {
+  headline: "More calls answered. More jobs booked.",
+  subhead:
+    "Get a free audit of your website and phone setup. We show you where jobs slip away, then set up simple bots that answer, follow up and book for you. Flat price. You approve what goes to customers.",
+  primaryCta: "Get my free audit",
+  secondaryCta: "See setup prices",
+  reassurance: "Free. No card. Just your website.",
+  formSubmit: "Send my free audit",
+  setupCta: "Start with a free audit",
+} as const;
+
+export const whoItIsFor =
+  "Built for owner-run service shops. If you run the trucks, answer the phone and still do the estimates, this is for you. HVAC, plumbing, electrical, roofing, docks and marine, trash and roll-off, construction, auto and repair, cleaning, landscaping, and other local service shops. Not for SaaS. Not for agencies.";
+
+export const setups = {
+  frontDesk: {
+    name: "Front Desk",
+    countLabel: "3 bots",
+    tagline: "Never miss a call or a quote request.",
+    badge: "Easy start",
+  },
+  fullCrew: {
+    name: "Full Crew",
+    countLabel: "7 bots",
+    tagline: "Front Desk plus follow-ups, scheduling and review requests.",
+    badge: "Best value",
+  },
+} as const;
+
 export const site = {
   name: "Lonely Owner",
   domain: "lonelyowner.com",
   url: "https://lonelyowner.com",
   founder: "Kevin Andreosky",
-  tagline: "AI audits and Grok bots",
+  tagline: hero.headline,
   calendly: "https://calendly.com/trainedbykevin/letsmeet",
   primaryCtaLabel: "Book a Call",
   tradesLine:
@@ -13,9 +42,9 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { href: "/#audits", label: "Audits" },
-  { href: "/#grok-bots", label: "Grok bots" },
-  { href: "/#start", label: "Start" },
+  { href: "/#grok-bots", label: "Setup prices" },
+  { href: "/#who", label: "Who it is for" },
+  { href: "/#faq", label: "Questions" },
   { href: "/resources", label: "Resources" },
   { href: opsLeakPath, label: "Free audit" },
 ] as const;
@@ -33,6 +62,7 @@ export const offer = {
     "Paste your website. We look at public pages and email a 5-area summary. No payment. Not a live scanner.",
 } as const;
 
+// Not rendered on the homepage. Turnaround is unconfirmed, so do not show this line there.
 export const grokGuarantee =
   "Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay.";
 
@@ -66,32 +96,41 @@ export const grokBots = {
   },
 } as const;
 
-export const faqs = [
+export type HomeFaq = {
+  q: string;
+  a: string;
+  bookCall?: boolean;
+};
+
+export const faqs: readonly HomeFaq[] = [
   {
-    q: "What are the two offers?",
-    a: "An AI audit, or Grok bot setup. The audit is a free score or a $999 working session. Grok bots are a flat build: 3 for $297, or a suite of 7 for $500.",
+    q: "Is this AI?",
+    a: "Yes, under the hood. You approve what goes to customers.",
   },
   {
-    q: "What is the free audit?",
-    a: "The Free Ops Leak Score. You paste your website. We review public pages and email a 5-area summary. It is not a live scanner, and it does not start paid work.",
+    q: "Do I need new software?",
+    a: "No. You send your website. You do not need to buy a new office system to ask for the free audit or to start a setup.",
+  },
+  // TODO for Kevin: confirm whether a monthly fee follows the flat setup price. Do not guess. Do not write one-time, no monthly fee, or no contract.
+  {
+    q: "What happens after setup, and is there a monthly cost?",
+    a: "Setup is a flat price: Front Desk or Full Crew. What you pay each month after setup is not listed on this page yet.",
   },
   {
-    q: "What is the AI Opportunity Audit?",
-    a: "A $999 working session on where jobs leak and what to fix first. If you move forward with a build, that $999 is credited toward it.",
+    q: "What if my shop is tiny?",
+    a: "This is built for a shop of one as much as a small crew. If you run the trucks, answer the phone, and still do the estimates, you are the fit.",
+  },
+  // TODO for Kevin: add the audit turnaround. Do not render a number until then.
+  {
+    q: "How long does the audit take?",
+    a: "You send your website. We email your Free Job Leak Audit. How long that takes is not listed on this page yet.",
   },
   {
-    q: "What do I need for the Grok bots?",
-    a: "A Grok account. Kevin walks you through setting one up. The bots are built by hand and live in 24 hours. If they are not live in 24 hours, you do not pay.",
+    q: "Who reads my info?",
+    a: "Kevin, based in Fort Lauderdale, reads the website and contact details you send. He uses them only to write your Free Job Leak Audit. We do not sell that information. If you would rather talk first, book a call.",
+    bookCall: true,
   },
-  {
-    q: "Will a bot talk to my customers?",
-    a: "Not unless you choose that later, and even then you stay in control. The default is simple: every bot drafts, the owner sends.",
-  },
-  {
-    q: "Who is this for?",
-    a: "Owner-operated trades. HVAC, plumbing, docks and marine, trash and roll-off, construction, and the shops that keep those crews moving.",
-  },
-] as const;
+];
 
 export const resourceJobs = [
   {
@@ -183,31 +222,25 @@ export function organizationJsonLd() {
       name: site.founder,
     },
     description:
-      "AI audits and Grok bot setup for owner-operated trades. Bots draft. The owner sends.",
+      "Free Job Leak Audit and flat-price bot setup for owner-operated trades. You approve what goes to customers.",
     areaServed: "United States",
     makesOffer: [
       offerJsonLd({
-        name: offer.freeName,
-        price: offer.freeAmount,
-        description: offer.freeDetail,
-        url: `${site.url}${opsLeakPath}`,
+        name: "Free Job Leak Audit",
+        price: "0",
+        description: hero.subhead,
+        url: `${site.url}/#audit-form`,
       }),
       offerJsonLd({
-        name: offer.auditName,
-        price: offer.auditAmount,
-        description: offer.auditDetail,
-        url: `${site.url}/#audits`,
-      }),
-      offerJsonLd({
-        name: grokBots.three.name,
+        name: setups.frontDesk.name,
         price: grokBots.three.amount,
-        description: `${grokBots.three.detail} ${grokBots.three.bots.join(" ")} ${grokGuarantee} ${grokAccountNote}`,
+        description: `${setups.frontDesk.countLabel}. ${grokBots.three.price} flat. ${setups.frontDesk.tagline} ${grokBots.three.bots.join(" ")}`,
         url: `${site.url}/#grok-bots`,
       }),
       offerJsonLd({
-        name: grokBots.seven.name,
+        name: setups.fullCrew.name,
         price: grokBots.seven.amount,
-        description: `${grokBots.seven.detail} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")} ${grokGuarantee} ${grokAccountNote}`,
+        description: `${setups.fullCrew.countLabel}. ${grokBots.seven.price} flat. ${setups.fullCrew.tagline} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")}`,
         url: `${site.url}/#grok-bots`,
       }),
     ],

@@ -31,7 +31,7 @@ export default function ResourcesPage() {
               href="/#grok-bots"
               className="font-semibold text-copper underline decoration-copper/40 underline-offset-4 hover:text-copper-hot"
             >
-              See Grok bot setup
+              See setup prices
             </Link>
             .
           </p>
@@ -68,10 +68,12 @@ export default function ResourcesPage() {
         <div className="mt-12 border border-cream/10 p-6">
           <h2 className="font-serif text-2xl">Want these running in your shop?</h2>
           <p className="mt-3 max-w-2xl leading-7 text-cream/72">
-            The AI Opportunity Audit shows which of these you should turn on
-            first. Fifteen minutes to see if it is a fit.
+            Start with a Free Job Leak Audit. If the report is useful, pick a
+            flat setup and we turn the bots on.
           </p>
-          <CtaLink className="mt-6">{site.primaryCtaLabel}</CtaLink>
+          <Link href="/#audit-form" className="cta-primary mt-6 w-full sm:w-auto">
+            Get my free audit
+          </Link>
         </div>
       </section>
     </div>

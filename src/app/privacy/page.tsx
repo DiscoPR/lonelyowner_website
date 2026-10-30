@@ -10,24 +10,31 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="October 29, 2026">
+    <LegalPage title="Privacy Policy" updated="October 30, 2026">
       <p>
         This policy covers {site.name} ({site.domain}), operated by{" "}
-        {site.founder}. It is a marketing site for an AI Opportunity Audit and
-        related shop-system work. It is written in plain language on purpose.
+        {site.founder}. It is a marketing site for a free job leak audit and
+        flat-price bot setup for owner-operated trades. It is written in plain
+        language on purpose.
       </p>
       <h2 className="font-serif text-2xl text-ink">What this site collects</h2>
       <p>
         This website does not require an account and does not run a customer
         portal. Reading the pages does not require a name, email, or payment
-        card. The free Ops Leak Score form is the exception: it asks for your
-        business website and the email where the summary should go.
+        card. The Free Job Leak Audit form on the homepage asks for your
+        business website, the email where the report should go, and, if you
+        add them, your trade and phone.
       </p>
       <p>
-        That form does not save the request on this site. Submitting it opens
-        your email app with a note you send. We use that note to review public
-        pages and email your score summary, and to follow up if you ask about
-        the audit. We do not sell that list. You can tell us to stop.
+        Submitting that homepage form sends the request to us by email. This
+        site does not keep its own database of form submissions. We use the
+        request to review public pages and email your report, and to follow up
+        if you ask about setup. We do not sell that list. You can tell us to
+        stop.
+      </p>
+      <p>
+        The form on the free audit page still opens a note in your email app
+        for you to send. We use that note the same way.
       </p>
       <p>
         If you book a call, you leave {site.domain} and use Calendly. Calendly

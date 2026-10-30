@@ -12,7 +12,7 @@ export default function NotFound() {
         That page is not on the board.
       </h1>
       <p className="mt-4 text-cream/72">
-        The link is dead or the page moved. Head home or book the audit call.
+        The link is dead or the page moved. Head home or book a call.
       </p>
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Link href="/" className="cta-secondary">

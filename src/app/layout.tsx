@@ -3,7 +3,7 @@ import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
-import { site } from "@/lib/site";
+import { grokBots, hero, site } from "@/lib/site";
 import "./globals.css";
 
 const sourceSans = Source_Sans_3({
@@ -21,18 +21,17 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Lonely Owner | AI audits and Grok bots for owner-operated trades",
-    template: "%s | Lonely Owner",
+    default: `${hero.headline} | ${site.name}`,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Two offers for owner-operated trades. A free AI audit or a $999 working session, and Grok bots built by hand: 3 for $297 or 7 for $500.",
+  description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price}. Full Crew is 7 bots for ${grokBots.seven.price}.`,
   applicationName: site.name,
   authors: [{ name: site.founder, url: site.url }],
   keywords: [
     "Lonely Owner",
-    "AI Opportunity Audit",
-    "Grok bots",
-    "blue collar AI",
+    "Free Job Leak Audit",
+    "missed calls",
+    "quote follow up",
     "HVAC",
     "plumbing",
     "owner operated trades",
@@ -42,15 +41,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: "Lonely Owner | AI audits and Grok bots for owner-operated trades",
-    description:
-      "Free AI audit or a $999 working session. Grok bots built by hand: 3 for $297 or 7 for $500.",
+    title: `${hero.headline} | ${site.name}`,
+    description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price}. Full Crew is 7 bots for ${grokBots.seven.price}.`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lonely Owner | AI audits and Grok bots for owner-operated trades",
-    description:
-      "Free AI audit or a $999 working session. Grok bots built by hand: 3 for $297 or 7 for $500.",
+    title: `${hero.headline} | ${site.name}`,
+    description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price}. Full Crew is 7 bots for ${grokBots.seven.price}.`,
   },
   robots: {
     index: true,
