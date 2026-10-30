@@ -50,19 +50,6 @@ export const navLinks = [
   { href: opsLeakPath, label: "Free audit" },
 ] as const;
 
-export const offer = {
-  auditName: "AI Opportunity Audit",
-  auditPrice: "$999",
-  auditAmount: "999",
-  auditDetail:
-    "A working session that shows where jobs leak and what to fix first. If you move forward, the $999 is credited toward the build.",
-  freeName: "Free Ops Leak Score",
-  freePrice: "$0",
-  freeAmount: "0",
-  freeDetail:
-    "Paste your website. We look at public pages and email a 5-area summary. No payment. Not a live scanner.",
-} as const;
-
 // Not rendered on the homepage. Turnaround is unconfirmed, so do not show this line there.
 export const grokGuarantee =
   "Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay.";

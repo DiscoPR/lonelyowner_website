@@ -33,8 +33,9 @@ export default function PrivacyPage() {
         stop.
       </p>
       <p>
-        The form on the free audit page still opens a note in your email app
-        for you to send. We use that note the same way.
+        The form on the free audit page asks for the same website and email,
+        plus an optional trade. It sends through the same path as the homepage
+        form. This site does not keep its own database of those submissions.
       </p>
       <p>
         If you book a call, you leave {site.domain} and use Calendly. Calendly
