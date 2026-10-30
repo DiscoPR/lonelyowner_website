@@ -3,6 +3,8 @@
  * The form posts to POST /api/free-audit, the same route as the homepage.
  */
 
+import { grokAccountNote } from "@/lib/site";
+
 export const opsLeakPath = "/free-audit" as const;
 
 export const opsLeakAreas = [
@@ -99,7 +101,7 @@ export const opsLeakFaqs = [
   },
   {
     q: "Do you build the bots for me?",
-    a: "Yes. Front Desk is 3 bots for $297, one time. Full Crew is 7 bots for $500, one time. Full Crew is Front Desk plus follow-ups, scheduling and review requests. You approve what goes to customers. Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay. Works with your website. Phone setup is scoped on your audit call.",
+    a: `Yes. Front Desk is 3 bots for $297, one time. Full Crew is 7 bots for $500, one time. Full Crew is Front Desk plus follow-ups, scheduling and review requests. You approve what goes to customers. Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay. Works with your website. Phone setup is scoped on your audit call. ${grokAccountNote}`,
   },
 ] as const;
 

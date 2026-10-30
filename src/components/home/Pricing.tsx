@@ -1,4 +1,4 @@
-import { grokBots, grokGuarantee, hero, setups, websiteScope } from "@/lib/site";
+import { grokAccountNote, grokBots, grokGuarantee, hero, setups, websiteScope } from "@/lib/site";
 
 const tiers = [
   {
@@ -61,7 +61,8 @@ export function Pricing() {
             </article>
           ))}
         </div>
-        <p className="mt-8 max-w-2xl leading-7 text-cream">{grokGuarantee}</p>
+        <p className="mt-8 max-w-2xl leading-7 text-cream">{grokAccountNote}</p>
+        <p className="mt-3 max-w-2xl leading-7 text-cream">{grokGuarantee}</p>
         <p className="mt-3 max-w-2xl leading-7 text-cream/72">{websiteScope}</p>
       </div>
     </section>
