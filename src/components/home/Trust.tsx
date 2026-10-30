@@ -8,16 +8,10 @@ export function Trust() {
         <h2 className="mt-3 font-serif text-3xl leading-tight tracking-tight sm:text-5xl">
           You approve every message before it goes to a customer.
         </h2>
-        <div className="mt-8 flex items-center gap-4">
-          {/* TODO for Kevin: put your headshot in this slot. Leave it empty until a real photo is in the repo. Do not use a stand-in image. */}
-          <div
-            aria-hidden="true"
-            className="h-16 w-16 shrink-0 border border-cream/25 bg-shop"
-          />
-          <p className="text-lg leading-8 text-cream/75">
-            Kevin, based in Fort Lauderdale.
-          </p>
-        </div>
+        <p className="mt-6 text-lg leading-8 text-cream/75">
+          Kevin, based in Fort Lauderdale.
+        </p>
+        {/* Headshot: render nothing until a real photo is in the repo. */}
         {/*
           Future client quote. Leave this empty until a real client gives one.
           Do not invent a name, a trade, or a result.
@@ -25,10 +19,6 @@ export function Trust() {
             <blockquote><p></p></blockquote>
             <figcaption></figcaption>
           </figure>
-        */}
-        {/*
-          Future guarantee line. Do not show a guarantee until Kevin writes one.
-          <p></p>
         */}
       </div>
     </section>

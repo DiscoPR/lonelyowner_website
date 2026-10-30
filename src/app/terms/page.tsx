@@ -32,15 +32,8 @@ export default function TermsPage() {
       <p>
         The Free Job Leak Audit is a short report we email after a look at
         public website pages. It is not a live scanner. Asking for it does not
-        start paid work. A paid setup is agreed on its own, at the flat setup
+        start paid work. A paid setup is agreed on its own, at the one-time
         price shown on the homepage.
-      </p>
-      <h2 className="font-serif text-2xl text-ink">Done-for-you support</h2>
-      <p>
-        Done-for-you support is $297 a month after you have seen the systems
-        work in your shop. That monthly plan starts after the work is live and
-        useful, not on a promise. Either side can end it as agreed in the
-        written plan for that engagement.
       </p>
       <h2 className="font-serif text-2xl text-ink">Owner control</h2>
       <p>

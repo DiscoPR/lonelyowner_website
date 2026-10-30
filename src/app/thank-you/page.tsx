@@ -22,7 +22,6 @@ export default function ThankYouPage() {
         <p className="mt-5 text-lg leading-8 text-cream/78">
           It is in. We will email the report to the address you used.
         </p>
-        {/* TODO for Kevin: say when the report arrives. Do not render a number, and do not say that a time is missing. */}
 
         <h2 className="mt-12 font-serif text-3xl tracking-tight">Who it is for</h2>
         <p className="mt-4 text-lg leading-8 text-cream/75">{whoItIsFor}</p>

@@ -26,7 +26,7 @@ export default function ResourcesPage() {
             These are the tasks that steal the evening after a full day in the
             field. A Grok bot can draft every one of them. You still send.
             That is the rule. Setup is {grokBots.three.price} for 3 bots or{" "}
-            {grokBots.seven.price} for 7, flat.{" "}
+            {grokBots.seven.price} for 7, one time.{" "}
             <Link
               href="/#grok-bots"
               className="font-semibold text-copper underline decoration-copper/40 underline-offset-4 hover:text-copper-hot"

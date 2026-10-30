@@ -3,7 +3,7 @@
 Marketing site for [lonelyowner.com](https://lonelyowner.com). Next.js App Router.
 
 Founder: Kevin Andreosky  
-Homepage offer: Free Job Leak Audit, then Front Desk (3 bots, $297 flat) or Full Crew (7 bots, $500 flat).  
+Homepage offer: Free Job Leak Audit, then Front Desk (3 bots, $297 one time) or Full Crew (7 bots, $500 one time).  
 Nav CTA: [Book a call](https://calendly.com/trainedbykevin/letsmeet)
 
 ## Environment variables

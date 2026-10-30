@@ -1,5 +1,7 @@
+import { websiteScope } from "@/lib/site";
+
 const withUs =
-  "Answered and followed up fast, and you approve what goes out.";
+  "Website inquiries answered and followed up fast, and you approve what goes out.";
 
 const rows = [
   {
@@ -88,6 +90,7 @@ export function InsteadOf() {
             </article>
           ))}
         </div>
+        <p className="mt-8 max-w-2xl leading-7 text-cream/80">{websiteScope}</p>
       </div>
     </section>
   );

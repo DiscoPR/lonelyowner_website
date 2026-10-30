@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: `${hero.headline} | ${site.name}`,
     template: `%s | ${site.name}`,
   },
-  description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price}. Full Crew is 7 bots for ${grokBots.seven.price}.`,
+  description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price} one time. Full Crew is 7 bots for ${grokBots.seven.price} one time.`,
   applicationName: site.name,
   authors: [{ name: site.founder, url: site.url }],
   keywords: [
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     url: site.url,
     siteName: site.name,
     title: `${hero.headline} | ${site.name}`,
-    description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price}. Full Crew is 7 bots for ${grokBots.seven.price}.`,
+    description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price} one time. Full Crew is 7 bots for ${grokBots.seven.price} one time.`,
   },
   twitter: {
     card: "summary_large_image",
     title: `${hero.headline} | ${site.name}`,
-    description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price}. Full Crew is 7 bots for ${grokBots.seven.price}.`,
+    description: `${hero.subhead} Front Desk is 3 bots for ${grokBots.three.price} one time. Full Crew is 7 bots for ${grokBots.seven.price} one time.`,
   },
   robots: {
     index: true,
