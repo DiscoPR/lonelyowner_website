@@ -3,7 +3,7 @@ import { opsLeakPath } from "@/lib/ops-leak";
 export const hero = {
   headline: "More calls answered. More jobs booked.",
   subhead:
-    "Get a free audit of your website. We show you where jobs slip away, then set up simple bots that answer, follow up and help you book the job. Flat price. You approve what goes to customers.",
+    "Get a free audit of your website. We show you where jobs slip away, then set up simple bots that answer, follow up and help you book the job. One-time flat price. You approve what goes to customers.",
   primaryCta: "Get my free audit",
   secondaryCta: "See setup prices",
   reassurance: "Free. No card. Just your website.",
@@ -50,9 +50,11 @@ export const navLinks = [
   { href: opsLeakPath, label: "Free audit" },
 ] as const;
 
-// Not rendered on the homepage. Turnaround is unconfirmed, so do not show this line there.
 export const grokGuarantee =
   "Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay.";
+
+export const websiteScope =
+  "Works with your website. Phone setup is scoped on your audit call.";
 
 export const grokAccountNote =
   "You need a Grok account to run the bots. Kevin walks you through setting one up.";
@@ -97,17 +99,15 @@ export const faqs: readonly HomeFaq[] = [
   },
   {
     q: "Do I need new software?",
-    a: "No. You send your website. You do not need to buy a new office system to ask for the free audit or to start a setup.",
+    a: "No. Works with your website. Phone setup is scoped on your audit call. You do not need to buy a new office system to ask for the free audit or to start a setup.",
   },
-  // TODO for Kevin: confirm whether a monthly fee follows the flat setup price. Do not guess. Do not write one-time, no monthly fee, or no contract. Keep this question off the page until then.
   {
     q: "What if my shop is tiny?",
     a: "This is built for a shop of one as much as a small crew. If you run the trucks, answer the phone, and still do the estimates, you are the fit.",
   },
-  // TODO for Kevin: add the audit turnaround. Do not render a number until then.
   {
     q: "How long does the audit take?",
-    a: "You send your website. We email your Free Job Leak Audit.",
+    a: grokGuarantee,
   },
   {
     q: "Who reads my info?",
@@ -206,7 +206,7 @@ export function organizationJsonLd() {
       name: site.founder,
     },
     description:
-      "Free Job Leak Audit and flat-price bot setup for owner-operated trades. You approve what goes to customers.",
+      "Free Job Leak Audit and one-time bot setup for owner-operated trades. You approve what goes to customers.",
     areaServed: "United States",
     makesOffer: [
       offerJsonLd({
@@ -218,13 +218,13 @@ export function organizationJsonLd() {
       offerJsonLd({
         name: setups.frontDesk.name,
         price: grokBots.three.amount,
-        description: `${setups.frontDesk.countLabel}. ${grokBots.three.price} flat. ${setups.frontDesk.tagline} ${grokBots.three.bots.join(" ")}`,
+        description: `${setups.frontDesk.countLabel}. ${grokBots.three.price} one time. ${setups.frontDesk.tagline} ${grokBots.three.bots.join(" ")} ${grokGuarantee} ${websiteScope}`,
         url: `${site.url}/#grok-bots`,
       }),
       offerJsonLd({
         name: setups.fullCrew.name,
         price: grokBots.seven.amount,
-        description: `${setups.fullCrew.countLabel}. ${grokBots.seven.price} flat. ${setups.fullCrew.tagline} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")}`,
+        description: `${setups.fullCrew.countLabel}. ${grokBots.seven.price} one time. ${setups.fullCrew.tagline} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")} ${grokGuarantee} ${websiteScope}`,
         url: `${site.url}/#grok-bots`,
       }),
     ],

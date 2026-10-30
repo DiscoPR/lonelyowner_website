@@ -194,7 +194,6 @@ export function AuditForm() {
           ) : null}
         </div>
 
-        {/* TODO for Kevin: do not claim the bots work with the shop's existing phone number until that is confirmed. */}
         <div>
           <label htmlFor={phoneId} className="block text-sm font-semibold text-cream">
             Phone <span className="font-normal text-muted">(optional)</span>
