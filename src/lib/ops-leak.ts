@@ -1,5 +1,5 @@
 /**
- * Free Job Leak Audit page copy. There is no live scorer.
+ * Free Job Leak Audit page copy. There is no live scanner.
  * The form posts to POST /api/free-audit, the same route as the homepage.
  */
 
@@ -27,43 +27,6 @@ export const opsLeakAreas = [
     body: "Hours, phones, reviews, and contact paths that match, or contradict each other.",
   },
 ] as const;
-
-/** Layout sample only. Not a client, and not a live score. */
-export const opsLeakSample = {
-  domain: "example-hvac.com",
-  total: 52,
-  band: "Moderate leak risk",
-  takeaway: "Some paths work. One or two gaps still cost real leads.",
-  biggestLeak:
-    "After-hours and owner bottleneck. Jobs that come in when you are on a roof or a barge have nowhere clean to land.",
-  areas: [
-    {
-      name: "After-hours capture",
-      score: 8,
-      note: 'Form open. No clear after-hours path beyond "call us."',
-    },
-    {
-      name: "Quote and estimate intake",
-      score: 11,
-      note: "Estimate CTA exists. Phone optional. No SLA language.",
-    },
-    {
-      name: "Owner bottleneck",
-      score: 7,
-      note: "Contact paths point to one inbox and one person.",
-    },
-    {
-      name: "Scheduling and dispatch friction",
-      score: 12,
-      note: "Hours listed. No self-booking. Callback implied.",
-    },
-    {
-      name: "Trust and contact clarity",
-      score: 14,
-      note: "Phone and hours mostly consistent. Reviews present but static.",
-    },
-  ],
-} as const;
 
 export const opsLeakSteps = [
   {
@@ -123,12 +86,8 @@ export const opsLeakFaqs = [
     a: "Owner-operated trades: HVAC, plumbing, docks and marine, trash and roll-off, construction, and shops. If everything still hits your personal phone, you are the audience.",
   },
   {
-    q: "What do the scores mean?",
-    a: "Each of 5 areas is scored 0 to 20. The total is out of 100. Higher means tighter ops. Lower means more jobs leaking: missed after-hours work, a weak quote path, or the owner as the bottleneck.",
-  },
-  {
     q: "Is this a live automated tool?",
-    a: "No. This page does not show a live score. We review public pages and email the Free Job Leak Audit. It is not a production scanner.",
+    a: "No. We review public pages and email the Free Job Leak Audit. It is not a live scanner.",
   },
   {
     q: "Will you spam me?",

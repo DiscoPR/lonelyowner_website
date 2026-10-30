@@ -11,7 +11,6 @@ import {
   opsLeakNotFit,
   opsLeakPath,
   opsLeakProcessTrust,
-  opsLeakSample,
   opsLeakSteps,
   opsLeakTrust,
 } from "@/lib/ops-leak";
@@ -81,27 +80,20 @@ export default function FreeAuditPage() {
             What you get
           </p>
           <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            Your Free Job Leak Audit covers 5 areas
+            Your Free Job Leak Audit shows your top leaks and the first fix
           </h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-cream/75">
-            Your top leaks and the first fix.
-          </p>
           <ol className="mt-10 grid gap-4 md:grid-cols-2">
             {opsLeakAreas.map((area, index) => (
               <li key={area.name} className="border border-cream/10 p-6">
                 <p className="font-serif text-sm tracking-[0.16em] text-copper">
-                  {String(index + 1).padStart(2, "0")} · 0 to 20
+                  {String(index + 1).padStart(2, "0")}
                 </p>
                 <h3 className="mt-3 font-serif text-2xl">{area.name}</h3>
                 <p className="mt-3 leading-7 text-cream/72">{area.body}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-8 max-w-3xl leading-7 text-cream/75">
-            Each area gets a simple score from 0 to 20. The total is out of
-            100. Higher means tighter ops. Lower means more jobs leaking.
-          </p>
-          <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
+          <p className="mt-8 max-w-3xl text-sm leading-6 text-muted">
             This page does not run a live scanner. We email the report after a
             look at public pages.
           </p>
@@ -127,75 +119,6 @@ export default function FreeAuditPage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="paper-grid border-b border-ink/10 text-ink">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-            Preview only
-          </p>
-          <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            A sample score card. Not your score.
-          </h2>
-          <p className="mt-4 max-w-2xl leading-7 text-ink-soft">
-            Example shop: {opsLeakSample.domain}. These numbers are placeholders
-            so you can see the layout. They are not a real client, and they are
-            not a live scan.
-          </p>
-
-          <article className="mt-10 border border-ink/15 bg-cream p-6 shadow-sm sm:p-8">
-            <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-              Preview only. Not a real client score.
-            </p>
-            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="font-serif text-5xl tracking-tight sm:text-6xl">
-                  {opsLeakSample.total}
-                  <span className="text-2xl text-ink-soft"> / 100</span>
-                </p>
-                <p className="mt-2 text-lg text-ink-soft">{opsLeakSample.band}</p>
-              </div>
-              <p className="max-w-sm text-sm leading-6 text-ink-soft">
-                {opsLeakSample.takeaway}
-              </p>
-            </div>
-
-            <ul className="mt-8 space-y-5">
-              {opsLeakSample.areas.map((area) => (
-                <li key={area.name}>
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-serif text-xl">{area.name}</h3>
-                    <p className="shrink-0 font-semibold text-ink">
-                      {area.score}/20
-                    </p>
-                  </div>
-                  <div
-                    className="mt-2 h-2 bg-sand"
-                    role="img"
-                    aria-label={`${area.name} sample score ${area.score} out of 20`}
-                  >
-                    <div
-                      className="h-2 bg-copper"
-                      style={{ width: `${(area.score / 20) * 100}%` }}
-                    />
-                  </div>
-                  <p className="mt-2 text-sm leading-6 text-ink-soft">{area.note}</p>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 border border-ink/10 bg-sand/50 p-5">
-              <h3 className="font-serif text-2xl">Biggest leak (sample)</h3>
-              <p className="mt-2 leading-7 text-ink-soft">
-                {opsLeakSample.biggestLeak}
-              </p>
-            </div>
-          </article>
-          <p className="mt-6 max-w-3xl leading-7 text-ink-soft">
-            That is the free layer. Front Desk is 3 bots for {grokBots.three.price}{" "}
-            one time. Full Crew is 7 bots for {grokBots.seven.price} one time.
-          </p>
         </div>
       </section>
 
@@ -262,7 +185,7 @@ export default function FreeAuditPage() {
             Setups
           </p>
           <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            Want the fix without the audit?
+            Ready for the fix?
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <article className="border border-ink/15 bg-cream p-6 sm:p-8">
