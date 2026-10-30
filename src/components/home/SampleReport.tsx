@@ -12,13 +12,10 @@ export function SampleReport() {
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <h2
           id="sample-report-title"
-          className="text-xs font-semibold tracking-[0.16em] text-copper uppercase"
+          className="font-serif text-2xl tracking-tight text-cream sm:text-3xl"
         >
-          Sample report. Not a real client.
+          What your free audit shows
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-cream/70">
-          This is the shape of the Free Job Leak Audit. It is not your shop.
-        </p>
         <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <li key={step} className="border border-cream/10 bg-ink/40 p-4">

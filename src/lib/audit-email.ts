@@ -1,4 +1,7 @@
 import type { AuditLead } from "@/lib/audit-lead";
+import { site } from "@/lib/site";
+
+const sendFailureMessage = `Something went wrong sending your request. Email Kevin at ${site.kevinEmail} or book a call.`;
 
 const defaultTo = "kevin.andreosky@gmail.com";
 
@@ -39,8 +42,7 @@ export async function sendAuditLead(lead: AuditLead): Promise<AuditEmailResult> 
     return {
       ok: false,
       status: 503,
-      message:
-        "We could not send that just now. Please try again in a few minutes.",
+      message: sendFailureMessage,
     };
   }
 
@@ -66,8 +68,7 @@ export async function sendAuditLead(lead: AuditLead): Promise<AuditEmailResult> 
       return {
         ok: false,
         status: 502,
-        message:
-          "We could not send that just now. Please try again in a few minutes.",
+        message: sendFailureMessage,
       };
     }
 
@@ -82,8 +83,7 @@ export async function sendAuditLead(lead: AuditLead): Promise<AuditEmailResult> 
     return {
       ok: false,
       status: 502,
-      message:
-        "We could not send that just now. Please try again in a few minutes.",
+      message: sendFailureMessage,
     };
   }
 }

@@ -3,7 +3,7 @@ import { opsLeakPath } from "@/lib/ops-leak";
 export const hero = {
   headline: "More calls answered. More jobs booked.",
   subhead:
-    "Get a free audit of your website and phone setup. We show you where jobs slip away, then set up simple bots that answer, follow up and book for you. Flat price. You approve what goes to customers.",
+    "Get a free audit of your website. We show you where jobs slip away, then set up simple bots that answer, follow up and help you book the job. Flat price. You approve what goes to customers.",
   primaryCta: "Get my free audit",
   secondaryCta: "See setup prices",
   reassurance: "Free. No card. Just your website.",
@@ -36,6 +36,7 @@ export const site = {
   founder: "Kevin Andreosky",
   tagline: hero.headline,
   calendly: "https://calendly.com/trainedbykevin/letsmeet",
+  kevinEmail: "kevin.andreosky@gmail.com",
   primaryCtaLabel: "Book a Call",
   tradesLine:
     "HVAC, plumbing, docks and marine, trash and roll-off, construction, and shops.",
@@ -111,11 +112,7 @@ export const faqs: readonly HomeFaq[] = [
     q: "Do I need new software?",
     a: "No. You send your website. You do not need to buy a new office system to ask for the free audit or to start a setup.",
   },
-  // TODO for Kevin: confirm whether a monthly fee follows the flat setup price. Do not guess. Do not write one-time, no monthly fee, or no contract.
-  {
-    q: "What happens after setup, and is there a monthly cost?",
-    a: "Setup is a flat price: Front Desk or Full Crew. What you pay each month after setup is not listed on this page yet.",
-  },
+  // TODO for Kevin: confirm whether a monthly fee follows the flat setup price. Do not guess. Do not write one-time, no monthly fee, or no contract. Keep this question off the page until then.
   {
     q: "What if my shop is tiny?",
     a: "This is built for a shop of one as much as a small crew. If you run the trucks, answer the phone, and still do the estimates, you are the fit.",
@@ -123,11 +120,11 @@ export const faqs: readonly HomeFaq[] = [
   // TODO for Kevin: add the audit turnaround. Do not render a number until then.
   {
     q: "How long does the audit take?",
-    a: "You send your website. We email your Free Job Leak Audit. How long that takes is not listed on this page yet.",
+    a: "You send your website. We email your Free Job Leak Audit.",
   },
   {
     q: "Who reads my info?",
-    a: "Kevin, based in Fort Lauderdale, reads the website and contact details you send. He uses them only to write your Free Job Leak Audit. We do not sell that information. If you would rather talk first, book a call.",
+    a: "Kevin reads the website, email, and any trade or phone you send. We use them to review public pages, email your Free Job Leak Audit, and follow up if you ask about setup. We do not sell that information, and this site does not keep its own database of those requests. If you would rather talk first, book a call.",
     bookCall: true,
   },
 ];

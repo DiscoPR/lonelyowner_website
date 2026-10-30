@@ -7,7 +7,7 @@ import {
   parseAuditLead,
   type AuditFieldErrors,
 } from "@/lib/audit-lead";
-import { hero } from "@/lib/site";
+import { hero, site } from "@/lib/site";
 
 const fieldClass =
   "mt-1.5 w-full min-h-11 rounded-sm border border-cream/20 bg-ink px-3 text-base text-cream placeholder:text-cream/35 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper";
@@ -31,7 +31,7 @@ export function AuditForm() {
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [errors, setErrors] = useState<AuditFieldErrors>({});
-  const [formError, setFormError] = useState("");
+  const [sendFailed, setSendFailed] = useState(false);
   const [pending, setPending] = useState(false);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -39,7 +39,7 @@ export function AuditForm() {
     const parsed = parseAuditLead({ website, email, trade, phone, company });
     if (!parsed.ok) {
       setErrors(parsed.errors);
-      setFormError("");
+      setSendFailed(false);
       const focusId = parsed.errors.website
         ? websiteId
         : parsed.errors.email
@@ -52,7 +52,7 @@ export function AuditForm() {
     }
 
     setErrors({});
-    setFormError("");
+    setSendFailed(false);
     setPending(true);
 
     try {
@@ -65,13 +65,6 @@ export function AuditForm() {
         body: JSON.stringify({ website, email, trade, phone, company }),
       });
       const payload: unknown = await response.json().catch(() => null);
-      const message =
-        payload &&
-        typeof payload === "object" &&
-        "message" in payload &&
-        typeof payload.message === "string"
-          ? payload.message
-          : "";
       const fieldErrors =
         payload &&
         typeof payload === "object" &&
@@ -80,22 +73,23 @@ export function AuditForm() {
         typeof payload.errors === "object"
           ? (payload.errors as AuditFieldErrors)
           : null;
+      const failed =
+        !response.ok ||
+        !(payload && typeof payload === "object" && "ok" in payload && payload.ok === true);
 
-      if (!response.ok || (payload && typeof payload === "object" && "ok" in payload && payload.ok !== true)) {
+      if (failed) {
         if (fieldErrors && (fieldErrors.website || fieldErrors.email || fieldErrors.phone || fieldErrors.trade)) {
           setErrors(fieldErrors);
+          setSendFailed(false);
+        } else {
+          setSendFailed(true);
         }
-        setFormError(
-          message || "We could not send that just now. Please try again in a few minutes.",
-        );
         return;
       }
 
       router.push("/thank-you");
     } catch {
-      setFormError(
-        "We could not send that just now. Please try again in a few minutes.",
-      );
+      setSendFailed(true);
     } finally {
       setPending(false);
     }
@@ -239,9 +233,25 @@ export function AuditForm() {
         />
       </p>
 
-      {formError ? (
+      {sendFailed ? (
         <p id={formErrorId} className="mt-4 text-sm leading-6 text-copper-hot" role="alert">
-          {formError}
+          Something went wrong sending your request. Email Kevin at{" "}
+          <a
+            className="font-semibold underline decoration-copper/70 underline-offset-4"
+            href={`mailto:${site.kevinEmail}`}
+          >
+            {site.kevinEmail}
+          </a>{" "}
+          or{" "}
+          <a
+            className="font-semibold underline decoration-copper/70 underline-offset-4"
+            href={site.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            book a call
+          </a>
+          .
         </p>
       ) : null}
 
@@ -249,7 +259,7 @@ export function AuditForm() {
         type="submit"
         className="cta-primary mt-5 w-full"
         disabled={pending}
-        aria-describedby={formError ? formErrorId : undefined}
+        aria-describedby={sendFailed ? formErrorId : undefined}
       >
         {pending ? "Sending..." : hero.formSubmit}
       </button>

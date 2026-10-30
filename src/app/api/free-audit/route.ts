@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { sendAuditLead } from "@/lib/audit-email";
+import { site } from "@/lib/site";
 import {
   parseAuditLead,
   type AuditFieldErrors,
@@ -68,8 +69,7 @@ function json(body: unknown, status: number) {
   });
 }
 
-function htmlError(message: string, status: number) {
-  const safe = escapeHtml(message);
+function htmlPage(body: string, status: number) {
   const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -80,7 +80,7 @@ function htmlError(message: string, status: number) {
 <body style="margin:0;padding:48px 20px;background:#110f0c;color:#f6f1e7;font-family:Georgia,serif;">
   <main style="max-width:36rem;margin:0 auto;">
     <h1 style="font-size:2rem;">We could not send that.</h1>
-    <p style="font-size:1.125rem;line-height:1.6;">${safe}</p>
+    ${body}
     <p><a style="color:#e39a52;" href="/#audit-form">Back to the form</a></p>
   </main>
 </body>
@@ -92,6 +92,22 @@ function htmlError(message: string, status: number) {
       "cache-control": "no-store",
     },
   });
+}
+
+function htmlError(message: string, status: number) {
+  return htmlPage(
+    `<p style="font-size:1.125rem;line-height:1.6;">${escapeHtml(message)}</p>`,
+    status,
+  );
+}
+
+function htmlSendFailure(status: number) {
+  const email = escapeHtml(site.kevinEmail);
+  const calendly = escapeHtml(site.calendly);
+  return htmlPage(
+    `<p style="font-size:1.125rem;line-height:1.6;">Something went wrong sending your request. Email Kevin at <a style="color:#e39a52;" href="mailto:${email}">${email}</a> or <a style="color:#e39a52;" href="${calendly}">book a call</a>.</p>`,
+    status,
+  );
 }
 
 function thankYouRedirect(request: NextRequest) {
@@ -135,7 +151,7 @@ export async function POST(request: NextRequest) {
     if (!sent.ok) {
       return jsonResponse
         ? json({ ok: false, message: sent.message }, sent.status)
-        : htmlError(sent.message, sent.status);
+        : htmlSendFailure(sent.status);
     }
   }
 

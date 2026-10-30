@@ -1,5 +1,5 @@
 const withUs =
-  "Answered, followed up and booked, and you approve what goes out.";
+  "Answered and followed up fast, and you approve what goes out.";
 
 const rows = [
   {

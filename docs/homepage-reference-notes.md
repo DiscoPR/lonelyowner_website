@@ -7,7 +7,7 @@ We used that page as a pattern for order, offer framing, proof restraint, and wh
 ## What we borrowed from boringfunnels.com and why
 
 - The first screen is the offer, not a brand story. Outcome headline, one short offer, the primary button, and the free step's form on desktop, with "Free. No card." under the button. A shop owner can start without scrolling through a company pitch.
-- A numbered strip sits directly under the hero and shows the deliverable in order before any selling. Ours is the sample leak report: top leaks, biggest leak, first fix, then pick a setup. The free audit becomes a concrete thing. It is labeled "Sample report. Not a real client."
+- A numbered strip sits directly under the hero and shows the deliverable in order before any selling. Ours is titled "What your free audit shows": top leaks, biggest leak, first fix, then pick a setup. The free audit becomes a concrete thing without a fake client score.
 - The problem is three short lines in the owner's voice, the way their page states the failure in a few sentences instead of a feature grid. The pain is recognizable in one glance, and it carries no stats.
 - An "Instead of / What it misses / With us" table comes before price. Voicemail, an answering service, hiring a front desk person, and doing it yourself are judged on the gap. No dollar figures in that table.
 - Price is a later choice between two setups, with one marked best value, and both cards use the same next step (the free audit). The paid setup follows the free step instead of leading the page.
