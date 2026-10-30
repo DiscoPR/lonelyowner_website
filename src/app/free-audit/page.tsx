@@ -14,7 +14,14 @@ import {
   opsLeakSteps,
   opsLeakTrust,
 } from "@/lib/ops-leak";
-import { grokBots, grokGuarantee, setups, site, websiteScope } from "@/lib/site";
+import {
+  grokAccountNote,
+  grokBots,
+  grokGuarantee,
+  setups,
+  site,
+  websiteScope,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Free Job Leak Audit for Trade Shops",
@@ -214,7 +221,8 @@ export default function FreeAuditPage() {
               </ul>
             </article>
           </div>
-          <p className="mt-8 max-w-3xl leading-7 text-ink-soft">{grokGuarantee}</p>
+          <p className="mt-8 max-w-3xl leading-7 text-ink-soft">{grokAccountNote}</p>
+          <p className="mt-3 max-w-3xl leading-7 text-ink-soft">{grokGuarantee}</p>
           <p className="mt-3 max-w-3xl leading-7 text-ink-soft">{websiteScope}</p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <CtaLink href="/#grok-bots">See bot setups</CtaLink>
