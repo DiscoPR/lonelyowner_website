@@ -1,5 +1,3 @@
-import { opsLeakPath } from "@/lib/ops-leak";
-
 export const hero = {
   headline: "More calls answered. More jobs booked.",
   subhead:
@@ -47,7 +45,7 @@ export const navLinks = [
   { href: "/#who", label: "Who it is for" },
   { href: "/#faq", label: "Questions" },
   { href: "/resources", label: "Resources" },
-  { href: opsLeakPath, label: "Free audit" },
+  { href: "/free-audit", label: "Free audit" },
 ] as const;
 
 export const offer = {
@@ -70,7 +68,7 @@ export const websiteScope =
   "Works with your website. Phone setup is scoped on your audit call.";
 
 export const grokAccountNote =
-  "You need a Grok account to run the bots. Kevin walks you through setting one up.";
+  "Setup is one time. You also need your own Grok plan to run the bots, paid to Grok, starting at $30 a month. Kevin helps you set it up.";
 
 export const grokBots = {
   three: {
@@ -121,6 +119,10 @@ export const faqs: readonly HomeFaq[] = [
   {
     q: "How fast are the bots live?",
     a: grokGuarantee,
+  },
+  {
+    q: "Do you build the bots for me?",
+    a: `Yes. ${grokAccountNote}`,
   },
   {
     q: "What do I get from the free audit?",
@@ -235,13 +237,13 @@ export function organizationJsonLd() {
       offerJsonLd({
         name: setups.frontDesk.name,
         price: grokBots.three.amount,
-        description: `${setups.frontDesk.countLabel}. ${grokBots.three.price} one time. ${setups.frontDesk.tagline} ${grokBots.three.bots.join(" ")} ${grokGuarantee} ${websiteScope}`,
+        description: `${setups.frontDesk.countLabel}. ${grokBots.three.price} one time. ${setups.frontDesk.tagline} ${grokBots.three.bots.join(" ")} ${grokGuarantee} ${websiteScope} ${grokAccountNote}`,
         url: `${site.url}/#grok-bots`,
       }),
       offerJsonLd({
         name: setups.fullCrew.name,
         price: grokBots.seven.amount,
-        description: `${setups.fullCrew.countLabel}. ${grokBots.seven.price} one time. ${setups.fullCrew.tagline} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")} ${grokGuarantee} ${websiteScope}`,
+        description: `${setups.fullCrew.countLabel}. ${grokBots.seven.price} one time. ${setups.fullCrew.tagline} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")} ${grokGuarantee} ${websiteScope} ${grokAccountNote}`,
         url: `${site.url}/#grok-bots`,
       }),
     ],
