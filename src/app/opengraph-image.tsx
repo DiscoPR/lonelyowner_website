@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Lonely Owner. The after-hours call is a job.";
+export const alt = "Every missed call is a job your competitor just booked.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -48,16 +48,16 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div
             style={{
-              fontSize: 64,
-              lineHeight: 1.1,
+              fontSize: 54,
+              lineHeight: 1.15,
               maxWidth: 980,
               fontWeight: 600,
             }}
           >
-            The after-hours call is a job. Voicemail is how you lose it.
+            Every missed call is a job your competitor just booked.
           </div>
           <div style={{ fontSize: 28, color: "#c67b3a" }}>
-            The blueprint for better outcomes
+            Live in 48 hours, or you don&apos;t pay.
           </div>
         </div>
       </div>

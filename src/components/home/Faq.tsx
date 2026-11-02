@@ -2,13 +2,10 @@ import { faqs } from "@/lib/site";
 
 export function Faq() {
   return (
-    <section id="faq" className="paper-grid text-ink">
+    <section id="faq" className="paper-grid scroll-mt-20 text-ink" aria-labelledby="faq-title">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-        <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-          FAQ
-        </p>
-        <h2 className="mt-3 font-serif text-3xl tracking-tight sm:text-5xl">
-          Straight answers before you book.
+        <h2 id="faq-title" className="font-serif text-3xl tracking-tight sm:text-5xl">
+          Straight answers.
         </h2>
         <div className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
           {faqs.map((item) => (

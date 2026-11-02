@@ -112,6 +112,11 @@ body::before {
   display: none;
 }
 
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
