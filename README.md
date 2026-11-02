@@ -71,7 +71,10 @@ Edit `src/lib/site.ts` for:
 
 - Calendly URL
 - Tagline
-- Audit and Grok bot prices
+- Setup prices: Never-Miss-a-Job Kit at $997 one-time, Full Front Office at $1,997 one-time
+- Job Leak Audit at $999, credited toward a build
+- Guarantee: live in 48 hours, or you don't pay
+- Running cost: the client needs their own Grok plan, paid to Grok, starting at $30 a month
 - FAQ and resource copy
 
 There are no social profile links on the site.
@@ -79,7 +82,7 @@ There are no social profile links on the site.
 ## Routes
 
 - `/` homepage
-- `/free-audit` free Ops Leak Score request (summary emailed after a public-page review; not a live scanner)
+- `/free-audit` free Job Leak Score request (summary emailed after a public-page review; not a live scanner)
 - `/resources` shop jobs a bot should draft (owner still sends)
 - `/privacy` privacy policy
 - `/terms` terms of use

@@ -117,8 +117,11 @@ export const pricing = {
   },
   both: "Both include: built by hand, live in 48 hours or you don't pay, and nothing goes out without your OK.",
   account:
-    "To run it, you'll need one low-cost account. Kevin sets it up with you.",
+    "To run it, you still need your own Grok plan, paid to Grok, starting at $30 a month. Kevin sets it up with you.",
 } as const;
+
+export const grokPlanNote =
+  "You still need your own Grok plan, paid to Grok, starting at $30 a month.";
 
 export const offer = {
   auditName: "Job Leak Audit",
@@ -182,7 +185,7 @@ export const faqs = [
   },
   {
     q: "What do I pay after setup?",
-    a: "The setup is one flat price. To run it, you'll need one low-cost account in your name, and Kevin helps you open it on your call. You own it, not us.",
+    a: "The setup is one flat price. You still need your own Grok plan, paid to Grok, starting at $30 a month. Kevin helps you open it on your call. You own it, not us.",
   },
   {
     q: "Do you promise a certain number of jobs?",
@@ -197,43 +200,6 @@ export const faqs = [
     a: "Owner-run service businesses: HVAC, plumbing, docks and marine, trash and roll-off, construction, and the shops that keep those crews moving. If you're still the one answering the phone, it's for you.",
   },
 ] as const;
-
-/**
- * Previous homepage offer. /resources and /free-audit still mention these
- * tiers. The homepage does not.
- */
-export const grokGuarantee =
-  "Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay.";
-
-export const grokAccountNote =
-  "You need a Grok account to run the bots. Kevin walks you through setting one up.";
-
-export const grokBots = {
-  three: {
-    name: "3 Grok Bots",
-    price: "$297",
-    amount: "297",
-    detail: "A starter set for the office work that still lands on the owner.",
-    bots: [
-      "One catches every inquiry and books it onto your calendar",
-      "One handles local SEO and Google visibility",
-      "One sends a plain-English weekly report on what is working",
-    ],
-  },
-  seven: {
-    name: "Suite of 7 Grok Bots",
-    price: "$500",
-    amount: "500",
-    detail:
-      "The 3 bots above, plus 4 more for an owner-operated service business.",
-    bots: [
-      "Review requests and reputation",
-      "Follow-up on quotes",
-      "Social posts",
-      "Inbox and calendar help",
-    ],
-  },
-} as const;
 
 export const resourceJobs = [
   {

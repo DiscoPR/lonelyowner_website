@@ -1,5 +1,5 @@
 /**
- * Free Ops Leak Score. Copy follows the approved landing draft.
+ * Free Job Leak Score. Copy follows the approved landing draft.
  * There is no live scorer. v1 asks the visitor to email the request.
  * Contact details here are for that deliverable only. Do not render them
  * in the site header, footer, homepage, or JSON-LD.
@@ -99,7 +99,7 @@ export const opsLeakSteps = [
   {
     n: "03",
     title: "Get your score summary",
-    body: "The summary shows the 5 area scores, the biggest leak, and whether a full AI Opportunity Audit is worth booking.",
+    body: "The summary shows the 5 area scores, the biggest leak, and whether a $999 Job Leak Audit is worth booking.",
   },
 ] as const;
 
@@ -132,7 +132,7 @@ export const opsLeakProcessTrust = [
 
 export const opsLeakFaqs = [
   {
-    q: "Is the Ops Leak Score really free?",
+    q: "Is the Job Leak Score really free?",
     a: "Yes. Paste your URL and email. You get the 5-area summary. No card required.",
   },
   {
@@ -153,7 +153,7 @@ export const opsLeakFaqs = [
   },
   {
     q: "What is the paid audit?",
-    a: "The AI Opportunity Audit is $999. It is a working session that turns the leak map into a first fix and an implementation path. On this site that session is the One Call Audit. If you move forward, the $999 is credited toward implementation.",
+    a: "The Job Leak Audit is $999. It is a working session that turns the leak map into a first fix and an implementation path. If you move forward with a build, the $999 is credited toward the build.",
   },
   {
     q: "Will you spam me?",
@@ -165,7 +165,7 @@ export const opsLeakFaqs = [
   },
   {
     q: "Do you build the bots for me?",
-    a: "Audit first. Implementation is separate. The $999 is credited toward implementation if you continue.",
+    a: "The free score comes first. The Never-Miss-a-Job Kit is $997 one-time and the Full Front Office is $1,997 one-time. Live in 48 hours, or you don't pay. If you book the $999 Job Leak Audit and then move ahead with a build, the $999 comes off that price. You still need your own Grok plan, paid to Grok, starting at $30 a month.",
   },
 ] as const;
 
@@ -235,15 +235,15 @@ export function buildOpsLeakMailto(input: {
   trade: string;
   domain: string;
 }): string {
-  const subject = `Ops Leak Score request for ${input.domain}`;
+  const subject = `Job Leak Score request for ${input.domain}`;
   const body = [
-    "Free Ops Leak Score request",
+    "Free Job Leak Score request",
     "",
     `Website: ${input.website}`,
     `Email for the summary: ${input.email}`,
     `Trade: ${input.trade || "Not provided"}`,
     "",
-    "Please review public pages only and email the Ops Leak Score PDF.",
+    "Please review public pages only and email the Job Leak Score PDF.",
     "No live score was shown on the site.",
   ].join("\n");
 

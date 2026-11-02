@@ -15,17 +15,17 @@ import {
   opsLeakSteps,
   opsLeakTrust,
 } from "@/lib/ops-leak";
-import { grokBots, offer, site } from "@/lib/site";
+import { grokPlanNote, offer, pricing, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Free Ops Leak Score for Trade Shops",
+  title: "Free Job Leak Score for Trade Shops",
   description:
-    "Paste your website. Get a free 5-area ops leak score for HVAC, plumbing, docks, roll-off, construction, and shops. See where jobs die after hours, then book the $999 AI Opportunity Audit.",
+    "Paste your website. Get a free 5-area Job Leak Score for HVAC, plumbing, docks, roll-off, construction, and shops. See where jobs die after hours, then book the $999 Job Leak Audit.",
   alternates: { canonical: `${site.url}${opsLeakPath}` },
   openGraph: {
     title: "Where is your shop leaking jobs?",
     description:
-      "Free Ops Leak Score for owner-operated trades. We email a 5-area summary. It is not a live scanner.",
+      "Free Job Leak Score for owner-run trades. We email a 5-area summary. It is not a live scanner.",
     url: `${site.url}${opsLeakPath}`,
   },
 };
@@ -39,13 +39,13 @@ export default function FreeAuditPage() {
         <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-24">
           <div>
             <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-              Free Ops Leak Score
+              Free Job Leak Score
             </p>
             <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight text-cream sm:text-6xl">
               Where is your shop leaking jobs?
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-cream/78">
-              Paste your business website. Get a free Ops Leak Score across 5
+              Paste your business website. Get a free Job Leak Score across 5
               areas that cost owner-operated trades money: after-hours calls,
               quote intake, owner bottleneck, scheduling friction, and trust
               gaps.
@@ -69,7 +69,7 @@ export default function FreeAuditPage() {
             What you get
           </p>
           <h2 className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl">
-            Your free Ops Leak Score covers 5 areas
+            Your free Job Leak Score covers 5 areas
           </h2>
           <ol className="mt-10 grid gap-4 md:grid-cols-2">
             {opsLeakAreas.map((area, index) => (
@@ -83,7 +83,7 @@ export default function FreeAuditPage() {
             ))}
           </ol>
           <p className="mt-8 max-w-3xl leading-7 text-cream/75">
-            Each area gets a simple score from 0 to 20. The total is your Ops
+            Each area gets a simple score from 0 to 20. The total is your Job
             Leak Score out of 100. Higher means tighter ops. Lower means more
             jobs leaking.
           </p>
@@ -250,17 +250,19 @@ export default function FreeAuditPage() {
             Ready for the full picture?
           </h2>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-ink-soft">
-            The free Ops Leak Score shows where you are leaking. The AI
-            Opportunity Audit ({offer.auditPrice}) is the working session that
-            maps the highest-priority fix to your shop, what a bot should
-            handle, and what stays human. The other offer is Grok bot setup:{" "}
-            {grokBots.three.price} for 3 bots, or {grokBots.seven.price} for a
-            suite of 7, both flat.{" "}
+            The free Job Leak Score shows where you are leaking. The{" "}
+            {offer.auditName} ({offer.auditPrice}) is a working session with
+            Kevin, not a slide deck. You leave knowing exactly where jobs leak
+            and what to fix first. Every dollar is credited toward your build.
+            If you want the office set up, {pricing.kit.name} is {pricing.kit.price}{" "}
+            one-time and {pricing.full.name} is {pricing.full.price} one-time.
+            Live in 48 hours, or you don&apos;t
+            pay. {grokPlanNote}{" "}
             <Link
               className="underline decoration-copper/60 underline-offset-4"
-              href="/#grok-bots"
+              href="/#pricing"
             >
-              See Grok bot setup
+              See pricing
             </Link>
             .
           </p>
@@ -287,7 +289,7 @@ export default function FreeAuditPage() {
               deliverable.
             </p>
             <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <CtaLink>Book the AI Opportunity Audit</CtaLink>
+              <CtaLink>Book the Job Leak Audit</CtaLink>
               <CtaLink
                 variant="secondary"
                 className="!border-ink/25 !text-ink hover:!border-ink/50 hover:!bg-ink/5"
@@ -329,10 +331,10 @@ export default function FreeAuditPage() {
             </Link>
             {" · "}
             <Link className="underline decoration-copper/60 underline-offset-4 hover:text-cream" href={opsLeakPath}>
-              Free Ops Leak Score
+              Free Job Leak Score
             </Link>
             {" · "}
-            AI Opportunity Audit ({offer.auditPrice})
+            {offer.auditName} ({offer.auditPrice})
             {" · "}
             <a
               className="underline decoration-copper/60 underline-offset-4 hover:text-cream"
