@@ -2,57 +2,41 @@ import Link from "next/link";
 import { opsLeakPath } from "@/lib/ops-leak";
 import { site } from "@/lib/site";
 
+const links = [
+  { href: site.calendly, label: site.primaryCtaLabel, external: true },
+  { href: opsLeakPath, label: "Free score", external: false },
+  { href: "/privacy", label: "Privacy", external: false },
+  { href: "/terms", label: "Terms", external: false },
+] as const;
+
 export function Footer() {
   return (
     <footer className="border-t border-cream/10 bg-shop pb-24 lg:pb-0">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2">
-        <div>
-          <p className="font-serif text-2xl text-cream">{site.name}</p>
-          <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
-            {site.tagline}
-          </p>
-        </div>
-
-        <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-copper uppercase">
-            Contact
-          </p>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <a
-                className="hover:text-copper-hot"
-                href={site.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {site.primaryCtaLabel}
-              </a>
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <p className="font-serif text-xl text-cream">
+          {site.name} · {site.tagline}
+        </p>
+        <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          {links.map((link) => (
+            <li key={link.label}>
+              {link.external ? (
+                <a
+                  className="hover:text-copper-hot"
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link className="hover:text-copper-hot" href={link.href}>
+                  {link.label}
+                </Link>
+              )}
             </li>
-            <li>
-              <Link className="hover:text-copper-hot" href={opsLeakPath}>
-                Free audit
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-copper-hot" href="/#grok-bots">
-                Grok bots
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-copper-hot" href="/privacy">
-                Privacy
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-copper-hot" href="/terms">
-                Terms
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-cream/10 py-5 text-center text-xs text-muted">
-        © {new Date().getFullYear()} {site.name}. {site.domain}
+          ))}
+        </ul>
+        <p className="mt-6 text-xs text-muted">© 2026 {site.name}</p>
       </div>
     </footer>
   );

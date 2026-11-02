@@ -5,34 +5,203 @@ export const site = {
   domain: "lonelyowner.com",
   url: "https://lonelyowner.com",
   founder: "Kevin Andreosky",
-  tagline: "AI audits and Grok bots",
+  tagline: "Office help for owner-run trades",
   calendly: "https://calendly.com/trainedbykevin/letsmeet",
-  primaryCtaLabel: "Book a Call",
+  primaryCtaLabel: "Book a call",
   tradesLine:
-    "HVAC, plumbing, docks and marine, trash and roll-off, construction, and shops.",
+    "FOR OWNER-RUN HVAC, PLUMBING, MARINE, ROLL-OFF AND CONSTRUCTION SHOPS",
 } as const;
 
 export const navLinks = [
-  { href: "/#audits", label: "Audits" },
-  { href: "/#grok-bots", label: "Grok bots" },
-  { href: "/#start", label: "Start" },
-  { href: "/resources", label: "Resources" },
-  { href: opsLeakPath, label: "Free audit" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#faq", label: "FAQ" },
 ] as const;
 
+export const hero = {
+  title: "Every missed call is a job your competitor just booked.",
+  body: "We set up your shop's front office so every call gets answered, every quote gets chased, and every happy customer leaves a review. Live in 48 hours, or you don't pay.",
+  primaryCta: "Get my free Job Leak Score",
+  secondaryCta: "Book a 15-min call",
+  checks: [
+    "Live in 48 hours or it's free",
+    "Nothing goes out without your OK",
+    "One flat setup price",
+  ],
+} as const;
+
+export const heroCard = {
+  time: "TONIGHT · 9:47 PM",
+  missed: "Missed call: new customer",
+  quote: '"AC stopped cooling. Can someone come out?"',
+  replyLabel: "REPLY READY FOR YOU",
+  reply:
+    "Sorry we missed you! We can have a tech out tomorrow at 8 AM or 10 AM. Which works better?",
+  send: "Send",
+  edit: "Edit",
+  held: "Held on your calendar: Tomorrow, 8:00 AM",
+} as const;
+
+export const pain = {
+  title: "You didn't start a business to answer the phone at dinner.",
+  body: "You're great at the work. The problem is everything around the work. That's where jobs slip away.",
+  points: [
+    {
+      n: "01",
+      title: "The call after 5 PM",
+      body: "It goes to voicemail. They don't leave one. They call the next shop on Google.",
+    },
+    {
+      n: "02",
+      title: "The quote nobody chased",
+      body: "You sent it. You meant to follow up. Two weeks later, somebody else got the job.",
+    },
+    {
+      n: "03",
+      title: "The review you never asked for",
+      body: "The customer loved you. But they never got asked, so new customers never hear about it.",
+    },
+    {
+      n: "04",
+      title: "The Sunday at the kitchen table",
+      body: "Emails, calendar, posts, paperwork. All of it lands on the owner. All of it eats your weekend.",
+    },
+  ],
+} as const;
+
+export const missedJobsCopy = {
+  eyebrow: "DO THE MATH ON YOUR SHOP",
+  title: "What are missed jobs costing you every year?",
+  body: "Put in your own numbers. Most owners have never added this up. It's usually the most expensive line in the business, and it never shows up on a bill.",
+  missedLabel: "Calls or leads missed per week",
+  jobLabel: "Your average job ($)",
+  resultLabel: "WALKING OUT THE DOOR EACH YEAR",
+  monthlyTail:
+    "a month, before a single referral those customers would have sent you.",
+} as const;
+
+export const pricing = {
+  eyebrow: "THE FIX",
+  title: "A front office that never clocks out.",
+  body: "Built by hand for your shop. One flat price. It gets the office work ready, and you stay the boss. Nothing goes to a customer until you say so.",
+  kit: {
+    name: "The Never-Miss-a-Job Kit",
+    audience:
+      "For the owner who's losing work after hours and wants it stopped this week.",
+    price: "$997",
+    amount: "997",
+    priceNote: "one-time setup",
+    includes: [
+      "Every call and web form answered and booked onto your calendar, day or night.",
+      "Show up when locals search Google for what you do.",
+      "A plain-English weekly report on what's bringing in work.",
+    ],
+    cta: "Get the Kit",
+  },
+  full: {
+    badge: "THE FULL SET",
+    name: "The Full Front Office",
+    audience:
+      "For the owner who wants the whole office off his plate, not just the phone.",
+    price: "$1,997",
+    amount: "1997",
+    priceNote: "one-time setup",
+    lead: "Everything in the Kit, plus:",
+    includes: [
+      "Every quote followed up, so no job dies in your inbox.",
+      "Review requests after every job, so your reputation grows on its own.",
+      "Social posts written for you that show off your real work.",
+      "Inbox and calendar kept clean, so Sunday nights are yours again.",
+    ],
+    cta: "Get the Full Front Office",
+  },
+  both: "Both include: built by hand, live in 48 hours or you don't pay, and nothing goes out without your OK.",
+  account:
+    "To run it, you'll need one low-cost account. Kevin sets it up with you.",
+} as const;
+
 export const offer = {
-  auditName: "AI Opportunity Audit",
+  auditName: "Job Leak Audit",
   auditPrice: "$999",
   auditAmount: "999",
   auditDetail:
-    "A working session that shows where jobs leak and what to fix first. If you move forward, the $999 is credited toward the build.",
-  freeName: "Free Ops Leak Score",
+    "A working session with Kevin, not a slide deck. You leave knowing exactly where jobs leak and what to fix first. Every dollar is credited toward your build.",
+  freeName: "Free Job Leak Score",
   freePrice: "$0",
   freeAmount: "0",
   freeDetail:
-    "Paste your website. We look at public pages and email a 5-area summary. No payment. Not a live scanner.",
+    "Paste your website. We review what customers see and email you a score on 5 areas where shops lose jobs. No card. No sales pitch.",
 } as const;
 
+export const auditSection = {
+  title: "Not sure where you're leaking? Start free.",
+  freeCta: "Get my free score",
+  paidCta: "Book the audit",
+} as const;
+
+export const howItWorks = {
+  title: "Three steps. Two days.",
+  steps: [
+    {
+      n: "1",
+      title: "Get your free score",
+      body: "Paste your website. See where jobs are slipping. Takes two minutes.",
+    },
+    {
+      n: "2",
+      title: "15 minutes with Kevin",
+      body: "Tell him how your shop runs. He tells you straight which setup fits, or if you don't need one.",
+    },
+    {
+      n: "3",
+      title: "Live in 48 hours",
+      body: "Kevin builds it by hand and walks you through it. You approve, you hit send, you get back to work.",
+    },
+  ],
+} as const;
+
+export const guarantee = {
+  eyebrow: "THE 48-HOUR GUARANTEE",
+  title: "Live in 48 hours, or you don't pay.",
+  body: "No fine print. If your setup isn't up and running within 48 hours of kickoff, you owe nothing. All the risk is on us.",
+} as const;
+
+export const finalCta = {
+  title: "The next call comes in tonight. Be ready for it.",
+  body: "Start with the free score. See what's slipping. Then decide.",
+} as const;
+
+export const faqs = [
+  {
+    q: "Will this talk to my customers without me?",
+    a: "No. It gets the reply ready. You read it and hit send. If you ever want it to send on its own, that's your call, and you can change it any time.",
+  },
+  {
+    q: "Do I have to learn new software?",
+    a: "No. Kevin builds the whole thing for you and walks you through it. If you can answer a text, you can run it.",
+  },
+  {
+    q: "What do I pay after setup?",
+    a: "The setup is one flat price. To run it, you'll need one low-cost account in your name, and Kevin helps you open it on your call. You own it, not us.",
+  },
+  {
+    q: "Do you promise a certain number of jobs?",
+    a: "No. Anyone who promises you rankings or job counts is guessing. What we promise is that it's live in 48 hours, or you don't pay.",
+  },
+  {
+    q: "What's the $999 audit for, if the score is free?",
+    a: "The free score looks at what customers see from the outside. The audit is a working session on how your shop actually runs, and what to fix first. If you go ahead with a build, the full $999 comes off the price.",
+  },
+  {
+    q: "Who is this for?",
+    a: "Owner-run service businesses: HVAC, plumbing, docks and marine, trash and roll-off, construction, and the shops that keep those crews moving. If you're still the one answering the phone, it's for you.",
+  },
+] as const;
+
+/**
+ * Previous homepage offer. /resources and /free-audit still mention these
+ * tiers. The homepage does not.
+ */
 export const grokGuarantee =
   "Built by hand. Live in 24 hours. If it is not live in 24 hours, you do not pay.";
 
@@ -65,33 +234,6 @@ export const grokBots = {
     ],
   },
 } as const;
-
-export const faqs = [
-  {
-    q: "What are the two offers?",
-    a: "An AI audit, or Grok bot setup. The audit is a free score or a $999 working session. Grok bots are a flat build: 3 for $297, or a suite of 7 for $500.",
-  },
-  {
-    q: "What is the free audit?",
-    a: "The Free Ops Leak Score. You paste your website. We review public pages and email a 5-area summary. It is not a live scanner, and it does not start paid work.",
-  },
-  {
-    q: "What is the AI Opportunity Audit?",
-    a: "A $999 working session on where jobs leak and what to fix first. If you move forward with a build, that $999 is credited toward it.",
-  },
-  {
-    q: "What do I need for the Grok bots?",
-    a: "A Grok account. Kevin walks you through setting one up. The bots are built by hand and live in 24 hours. If they are not live in 24 hours, you do not pay.",
-  },
-  {
-    q: "Will a bot talk to my customers?",
-    a: "Not unless you choose that later, and even then you stay in control. The default is simple: every bot drafts, the owner sends.",
-  },
-  {
-    q: "Who is this for?",
-    a: "Owner-operated trades. HVAC, plumbing, docks and marine, trash and roll-off, construction, and the shops that keep those crews moving.",
-  },
-] as const;
 
 export const resourceJobs = [
   {
@@ -182,8 +324,7 @@ export function organizationJsonLd() {
       "@type": "Person",
       name: site.founder,
     },
-    description:
-      "AI audits and Grok bot setup for owner-operated trades. Bots draft. The owner sends.",
+    description: hero.body,
     areaServed: "United States",
     makesOffer: [
       offerJsonLd({
@@ -199,16 +340,16 @@ export function organizationJsonLd() {
         url: `${site.url}/#audits`,
       }),
       offerJsonLd({
-        name: grokBots.three.name,
-        price: grokBots.three.amount,
-        description: `${grokBots.three.detail} ${grokBots.three.bots.join(" ")} ${grokGuarantee} ${grokAccountNote}`,
-        url: `${site.url}/#grok-bots`,
+        name: pricing.kit.name,
+        price: pricing.kit.amount,
+        description: `${pricing.kit.audience} ${pricing.kit.price} ${pricing.kit.priceNote}. ${pricing.kit.includes.join(" ")} ${pricing.both} ${pricing.account}`,
+        url: `${site.url}/#pricing`,
       }),
       offerJsonLd({
-        name: grokBots.seven.name,
-        price: grokBots.seven.amount,
-        description: `${grokBots.seven.detail} ${[...grokBots.three.bots, ...grokBots.seven.bots].join(" ")} ${grokGuarantee} ${grokAccountNote}`,
-        url: `${site.url}/#grok-bots`,
+        name: pricing.full.name,
+        price: pricing.full.amount,
+        description: `${pricing.full.audience} ${pricing.full.price} ${pricing.full.priceNote}. ${pricing.full.lead} ${pricing.full.includes.join(" ")} ${pricing.both} ${pricing.account}`,
+        url: `${site.url}/#pricing`,
       }),
     ],
   };

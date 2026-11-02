@@ -43,7 +43,7 @@ export function Header() {
           <span>{site.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-3 xl:gap-6 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-3 lg:flex xl:gap-6" aria-label="Primary">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -53,13 +53,8 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <CtaLink className="!min-h-10 !px-4 !text-sm">{site.primaryCtaLabel}</CtaLink>
         </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <CtaLink className="!min-h-10 !px-4 !text-sm">
-            {site.primaryCtaLabel}
-          </CtaLink>
-        </div>
 
         <button
           type="button"
