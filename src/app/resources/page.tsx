@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CtaLink } from "@/components/CtaLink";
 import { opsLeakPath } from "@/lib/ops-leak";
-import { grokBots, resourceJobs, site } from "@/lib/site";
+import { grokPlanNote, pricing, resourceJobs, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Shop jobs a bot should draft",
   description:
-    "Jobs a one-owner shop should hand to a bot. Every bot drafts. The owner sends.",
+    "Jobs a one-owner shop should hand to a bot. Every bot drafts. The owner sends. Setup is the $997 Kit or the $1,997 Full Front Office.",
   alternates: { canonical: `${site.url}/resources` },
 };
 
@@ -25,20 +25,21 @@ export default function ResourcesPage() {
           <p className="mt-5 max-w-2xl text-lg leading-8 text-cream/75">
             These are the tasks that steal the evening after a full day in the
             field. A Grok bot can draft every one of them. You still send.
-            That is the rule. Setup is {grokBots.three.price} for 3 bots or{" "}
-            {grokBots.seven.price} for 7, flat.{" "}
+            That is the rule. Setup is {pricing.kit.name} ({pricing.kit.price}{" "}
+            {pricing.kit.priceNote}) or {pricing.full.name} ({pricing.full.price}{" "}
+            {pricing.full.priceNote}). Live in 48 hours, or you don&apos;t pay. {grokPlanNote}{" "}
             <Link
-              href="/#grok-bots"
+              href="/#pricing"
               className="font-semibold text-copper underline decoration-copper/40 underline-offset-4 hover:text-copper-hot"
             >
-              See Grok bot setup
+              See pricing
             </Link>
             .
           </p>
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
             <CtaLink>{site.primaryCtaLabel}</CtaLink>
             <Link href={opsLeakPath} className="cta-secondary">
-              Get your free Ops Leak Score
+              Get my free Job Leak Score
             </Link>
           </div>
         </div>
@@ -68,8 +69,9 @@ export default function ResourcesPage() {
         <div className="mt-12 border border-cream/10 p-6">
           <h2 className="font-serif text-2xl">Want these running in your shop?</h2>
           <p className="mt-3 max-w-2xl leading-7 text-cream/72">
-            The AI Opportunity Audit shows which of these you should turn on
-            first. Fifteen minutes to see if it is a fit.
+            The $999 Job Leak Audit shows which of these you should turn on
+            first. Every dollar is credited toward a build. Fifteen minutes to
+            see if it is a fit.
           </p>
           <CtaLink className="mt-6">{site.primaryCtaLabel}</CtaLink>
         </div>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Use" updated="October 29, 2026">
+    <LegalPage title="Terms of Use" updated="November 2, 2026">
       <p>
         These terms cover the public website at {site.domain} and the way you
         book time with {site.name}. If you hire us for an audit or
@@ -25,30 +25,31 @@ export default function TermsPage() {
       </p>
       <h2 className="font-serif text-2xl text-ink">Booking a call</h2>
       <p>
-        The 15-minute audit call is a fit check. Booking it does not start a
-        monthly plan and does not by itself purchase the One Call Audit. Paid
+        The 15-minute call is a fit check. Booking it does not by itself
+        purchase the Job Leak Audit, the Kit, or the Full Front Office. Paid
         work is agreed on the call or in writing after it.
       </p>
-      <h2 className="font-serif text-2xl text-ink">Free Ops Leak Score</h2>
+      <h2 className="font-serif text-2xl text-ink">Free Job Leak Score</h2>
       <p>
-        The free Ops Leak Score is a short summary we email after a look at
+        The free Job Leak Score is a short summary we email after a look at
         public website pages. It is not a live scanner, and it is not the $999
-        AI Opportunity Audit. Asking for the free summary does not start paid
-        work. The paid audit is agreed on its own.
+        Job Leak Audit. Asking for the free summary does not start paid work.
+        The paid audit is agreed on its own.
       </p>
-      <h2 className="font-serif text-2xl text-ink">The One Call Audit</h2>
+      <h2 className="font-serif text-2xl text-ink">The Job Leak Audit</h2>
       <p>
-        The One Call Audit is $999. If you move forward with implementation,
-        that fee is credited toward the build. If you do not move forward, the
-        audit fee still covers the work already done. We will tell you the
-        next step in plain language before you pay for more.
+        The Job Leak Audit is $999. If you move forward with a build, that fee
+        is credited toward the build. If you do not move forward, the audit
+        fee still covers the work already done. We will tell you the next step
+        in plain language before you pay for more.
       </p>
-      <h2 className="font-serif text-2xl text-ink">Done-for-you support</h2>
+      <h2 className="font-serif text-2xl text-ink">Setup</h2>
       <p>
-        Done-for-you support is $297 a month after you have seen the systems
-        work in your shop. That monthly plan starts after the work is live and
-        useful, not on a promise. Either side can end it as agreed in the
-        written plan for that engagement.
+        The Never-Miss-a-Job Kit is $997 one-time. The Full Front Office is
+        $1,997 one-time. Live in 48 hours, or you don&apos;t pay. If your setup
+        is not up and running within 48 hours of kickoff, you owe nothing for
+        that setup. You still need your own Grok plan, paid to Grok, starting
+        at $30 a month. That plan is billed by Grok, not by {site.name}.
       </p>
       <h2 className="font-serif text-2xl text-ink">Owner control</h2>
       <p>

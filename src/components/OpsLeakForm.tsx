@@ -78,7 +78,7 @@ export function OpsLeakForm() {
           tabIndex={-1}
           className="mt-3 font-serif text-3xl tracking-tight text-cream outline-none"
         >
-          Got it. Your Ops Leak Score PDF is being prepared.
+          Got it. Your Job Leak Score PDF is being prepared.
         </h2>
         <p className="mt-4 leading-7 text-cream/78">
           {domain ? (
@@ -109,7 +109,7 @@ export function OpsLeakForm() {
             </a>
           ) : null}
           <CtaLink className="w-full sm:w-auto" href={fitCall}>
-            Book the AI Opportunity Audit
+            Book the Job Leak Audit
           </CtaLink>
           <CtaLink
             className="w-full sm:w-auto"
@@ -120,9 +120,9 @@ export function OpsLeakForm() {
           </CtaLink>
         </div>
         <p className="mt-4 text-sm leading-6 text-muted">
-          The fit call is about 15 minutes. It is for the $999 AI Opportunity
-          Audit. If the summary shows a clear money leak, book while it is
-          top of mind.
+          The fit call is about 15 minutes. It is for the $999 Job Leak Audit.
+          If the summary shows a clear money leak, book while it is top of
+          mind.
         </p>
         <p className="mt-4 text-sm leading-6 text-cream/70">
           Didn&apos;t get the email? Check spam, then reply from the address
@@ -145,7 +145,7 @@ export function OpsLeakForm() {
       onSubmit={onSubmit}
       noValidate
     >
-      <h2 className="font-serif text-2xl text-cream">Get your free Ops Leak Score</h2>
+      <h2 className="font-serif text-2xl text-cream">Get your free Job Leak Score</h2>
       <p className="mt-2 text-sm leading-6 text-muted">
         URL and email. We email the summary after a look at public pages.
       </p>

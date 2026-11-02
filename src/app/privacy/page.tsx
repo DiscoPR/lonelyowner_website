@@ -10,17 +10,18 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="October 29, 2026">
+    <LegalPage title="Privacy Policy" updated="November 2, 2026">
       <p>
         This policy covers {site.name} ({site.domain}), operated by{" "}
-        {site.founder}. It is a marketing site for an AI Opportunity Audit and
-        related shop-system work. It is written in plain language on purpose.
+        {site.founder}. It is a marketing site for the Job Leak Audit, front
+        office setup, and related shop-system work. It is written in plain
+        language on purpose.
       </p>
       <h2 className="font-serif text-2xl text-ink">What this site collects</h2>
       <p>
         This website does not require an account and does not run a customer
         portal. Reading the pages does not require a name, email, or payment
-        card. The free Ops Leak Score form is the exception: it asks for your
+        card. The free Job Leak Score form is the exception: it asks for your
         business website and the email where the summary should go.
       </p>
       <p>
