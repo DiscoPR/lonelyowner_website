@@ -1,9 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { freeAuditBooking, freeAuditPath } from "@/lib/free-audit";
 import { site } from "@/lib/site";
 
 export function MobileStickyBar() {
+  const pathname = usePathname();
+  const label =
+    pathname === freeAuditPath ? freeAuditBooking.label : site.primaryCtaLabel;
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -22,9 +27,9 @@ export function MobileStickyBar() {
           href={site.calendly}
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-primary w-full"
+          className="cta-primary w-full whitespace-normal text-center"
         >
-          {site.primaryCtaLabel}
+          {label}
         </a>
       </div>
     </div>

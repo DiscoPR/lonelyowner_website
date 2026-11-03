@@ -29,12 +29,12 @@ export default function TermsPage() {
         purchase the Job Leak Audit, the Kit, or the Full Front Office. Paid
         work is agreed on the call or in writing after it.
       </p>
-      <h2 className="font-serif text-2xl text-ink">Free Job Leak Score</h2>
+      <h2 className="font-serif text-2xl text-ink">Free 20 minute look</h2>
       <p>
-        The free Job Leak Score is a short summary we email after a look at
-        public website pages. It is not a live scanner, and it is not the $999
-        Job Leak Audit. Asking for the free summary does not start paid work.
-        The paid audit is agreed on its own.
+        The free 20 minute screen share is a look at how calls, texts and inbox
+        get handled today. Booking it does not start paid work. The missed-jobs
+        calculator on that page uses numbers you type in your browser. We do
+        not store those numbers. It is an estimate, not a promise of booked jobs.
       </p>
       <h2 className="font-serif text-2xl text-ink">The Job Leak Audit</h2>
       <p>
