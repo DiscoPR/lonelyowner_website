@@ -16,6 +16,22 @@ export function missedJobCost(missedPerWeek: number, averageJob: number) {
   return { yearly, monthly: yearly / 12 };
 }
 
+/**
+ * Monthly estimate for the free-audit calculator.
+ * sharePercent is 0 to 100. Values above 100 are treated as 100.
+ * Result = missed calls x (share / 100) x job value x 4.
+ */
+export function lostWorkPerMonth(
+  missedPerWeek: number,
+  sharePercent: number,
+  averageJob: number,
+): number {
+  const missed = nonNegative(missedPerWeek);
+  const share = Math.min(nonNegative(sharePercent), 100) / 100;
+  const job = nonNegative(averageJob);
+  return missed * share * job * 4;
+}
+
 export function formatDollars(amount: number): string {
   const safe = Number.isFinite(amount) ? amount : 0;
   const cents = Math.round((safe + Number.EPSILON) * 100);

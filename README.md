@@ -82,7 +82,7 @@ There are no social profile links on the site.
 ## Routes
 
 - `/` homepage
-- `/free-audit` free Job Leak Score request (summary emailed after a public-page review; not a live scanner)
+- `/free-audit` free 20 minute screen share, with a missed-jobs calculator that stays in the browser
 - `/resources` shop jobs a bot should draft (owner still sends)
 - `/privacy` privacy policy
 - `/terms` terms of use

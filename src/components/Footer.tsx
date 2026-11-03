@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { opsLeakPath } from "@/lib/ops-leak";
+import { freeAuditPath } from "@/lib/free-audit";
 import { site } from "@/lib/site";
 
 const links = [
   { href: site.calendly, label: site.primaryCtaLabel, external: true },
-  { href: opsLeakPath, label: "Free score", external: false },
+  { href: freeAuditPath, label: "Free 20 minute look", external: false },
   { href: "/privacy", label: "Privacy", external: false },
   { href: "/terms", label: "Terms", external: false },
 ] as const;
