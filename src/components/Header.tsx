@@ -53,7 +53,9 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <CtaLink className="!min-h-10 !px-4 !text-sm">{site.primaryCtaLabel}</CtaLink>
+          <CtaLink className="!min-h-10 !px-3 !text-sm whitespace-nowrap">
+            {site.primaryCtaLabel}
+          </CtaLink>
         </nav>
 
         <button
