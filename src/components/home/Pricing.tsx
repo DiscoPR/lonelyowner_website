@@ -20,25 +20,22 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="paper-grid scroll-mt-20 text-ink"
+      className="scroll-mt-20 border-y border-cream/10 bg-shop"
       aria-labelledby="pricing-title"
     >
       <div id="grok-bots" className="scroll-mt-20" />
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <p className="text-xs font-semibold tracking-[0.16em] text-copper">
-          {pricing.eyebrow}
-        </p>
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
         <h2
           id="pricing-title"
-          className="mt-3 max-w-3xl font-serif text-3xl tracking-tight sm:text-5xl"
+          className="max-w-3xl font-serif text-3xl tracking-tight text-cream sm:text-4xl"
         >
           {pricing.title}
         </h2>
-        <p className="mt-5 max-w-2xl text-lg leading-8 text-ink-soft">{pricing.body}</p>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-cream/70">{pricing.body}</p>
 
-        <div className="mt-12 grid items-stretch gap-8 lg:grid-cols-2">
-          <article className="flex flex-col border border-ink/15 bg-cream p-6 shadow-sm sm:p-7">
-            <h3 className="font-serif text-3xl">{pricing.kit.name}</h3>
+        <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
+          <article className="flex flex-col border border-cream/15 bg-cream p-6 text-ink shadow-sm sm:p-7">
+            <h3 className="font-serif text-3xl">{pricing.kit.homeName}</h3>
             <p className="mt-3 leading-7 text-ink-soft">{pricing.kit.audience}</p>
             <p className="mt-4 font-serif text-4xl text-ink">
               {pricing.kit.price}{" "}
@@ -52,11 +49,8 @@ export function Pricing() {
             </div>
           </article>
 
-          <article className="relative flex flex-col border-2 border-copper bg-cream p-6 shadow-sm sm:p-7">
-            <p className="absolute -top-3 right-5 bg-copper px-2.5 py-1 text-[11px] font-bold tracking-[0.14em] text-ink">
-              {pricing.full.badge}
-            </p>
-            <h3 className="font-serif text-3xl">{pricing.full.name}</h3>
+          <article className="flex flex-col border border-cream/15 bg-cream p-6 text-ink shadow-sm sm:p-7">
+            <h3 className="font-serif text-3xl">{pricing.full.homeName}</h3>
             <p className="mt-3 leading-7 text-ink-soft">{pricing.full.audience}</p>
             <p className="mt-4 font-serif text-4xl text-ink">
               {pricing.full.price}{" "}
@@ -72,8 +66,8 @@ export function Pricing() {
           </article>
         </div>
 
-        <p className="mt-8 max-w-3xl leading-7 text-ink-soft">{pricing.both}</p>
-        <p className="mt-3 max-w-3xl leading-7 text-ink-soft">{pricing.account}</p>
+        <p className="mt-8 max-w-3xl text-sm leading-6 text-cream/80">{pricing.both}</p>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-cream/80">{pricing.account}</p>
       </div>
     </section>
   );

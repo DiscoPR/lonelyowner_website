@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { freeAuditPath } from "@/lib/free-audit";
-import { site } from "@/lib/site";
+import { site, workshop } from "@/lib/site";
 
 const links = [
   { href: site.calendly, label: site.primaryCtaLabel, external: true },
-  { href: freeAuditPath, label: "Free 20 minute look", external: false },
+  { href: `/#${workshop.id}`, label: "Dec 1 class", external: false },
   { href: "/privacy", label: "Privacy", external: false },
   { href: "/terms", label: "Terms", external: false },
 ] as const;

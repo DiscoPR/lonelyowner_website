@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { CtaLink } from "@/components/CtaLink";
-import { opsLeakPath } from "@/lib/ops-leak";
-import { finalCta, hero } from "@/lib/site";
+import { finalCta, hero, workshop } from "@/lib/site";
 
 export function FinalCta() {
   return (
@@ -15,10 +13,12 @@ export function FinalCta() {
         </h2>
         <p className="mt-5 text-lg leading-8 text-cream/75">{finalCta.body}</p>
         <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-start">
-          <Link href={opsLeakPath} className="cta-primary w-full sm:w-auto">
-            {hero.primaryCta}
-          </Link>
-          <CtaLink className="w-full sm:w-auto" variant="secondary">
+          <CtaLink className="w-full sm:w-auto">{hero.primaryCta}</CtaLink>
+          <CtaLink
+            href={`#${workshop.id}`}
+            className="w-full sm:w-auto"
+            variant="secondary"
+          >
             {hero.secondaryCta}
           </CtaLink>
         </div>

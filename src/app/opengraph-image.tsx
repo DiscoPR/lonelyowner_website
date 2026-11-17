@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Every missed call is a job your competitor just booked.";
+export const alt = "Spend less time on busywork. More time on jobs.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,10 +54,10 @@ export default function OpenGraphImage() {
               fontWeight: 600,
             }}
           >
-            Every missed call is a job your competitor just booked.
+            Spend less time on busywork. More time on jobs.
           </div>
           <div style={{ fontSize: 28, color: "#c67b3a" }}>
-            Live in 48 hours, or you don&apos;t pay.
+            For trades shop owners in South Florida
           </div>
         </div>
       </div>

@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Audits } from "@/components/home/Audits";
-import { Calculator } from "@/components/home/Calculator";
 import { Faq } from "@/components/home/Faq";
 import { FinalCta } from "@/components/home/FinalCta";
-import { Guarantee } from "@/components/home/Guarantee";
+import { Founder } from "@/components/home/Founder";
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
-import { Pain } from "@/components/home/Pain";
 import { Pricing } from "@/components/home/Pricing";
+import { Workshop } from "@/components/home/Workshop";
 import { JsonLd } from "@/components/JsonLd";
 import { faqJsonLd, hero, organizationJsonLd, site } from "@/lib/site";
 
@@ -34,12 +32,10 @@ export default function Home() {
       <JsonLd data={organizationJsonLd()} />
       <JsonLd data={faqJsonLd()} />
       <Hero />
-      <Pain />
-      <Calculator />
-      <Pricing />
-      <Audits />
+      <Workshop />
       <HowItWorks />
-      <Guarantee />
+      <Founder />
+      <Pricing />
       <Faq />
       <FinalCta />
     </>

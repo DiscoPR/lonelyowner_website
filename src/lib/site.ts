@@ -1,123 +1,102 @@
-import { opsLeakPath } from "@/lib/ops-leak";
-
 export const site = {
   name: "Lonely Owner",
   domain: "lonelyowner.com",
   url: "https://lonelyowner.com",
   founder: "Kevin Andreosky",
-  tagline: "Office help for owner-run trades",
+  tagline: "Less time on busywork",
   calendly: "https://calendly.com/trainedbykevin/letsmeet",
-  primaryCtaLabel: "Book a call",
-  tradesLine:
-    "FOR OWNER-RUN HVAC, PLUMBING, MARINE, ROLL-OFF AND CONSTRUCTION SHOPS",
+  primaryCtaLabel: "Get a free time check",
+  tradesLine: "For trades shop owners in South Florida",
+} as const;
+
+export const workshop = {
+  id: "dec-1-class",
+  title: "Free class Dec 1: how to get your time back without hiring",
+  body: "Tuesday, Dec 1, 2026, 6:30 to 7:45 PM at the Broward County Main Library, 4th floor (Creation Station). Free. 15 seats. No tech skills needed.",
+  note: "This event is not sponsored by Broward County Libraries.",
+  cta: "Save your seat",
+  href: "https://broward.libnet.info/event/17734390",
 } as const;
 
 export const navLinks = [
   { href: "/#how-it-works", label: "How it works" },
-  { href: "/#pricing", label: "Pricing" },
+  { href: `/#${workshop.id}`, label: "Dec 1 class" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
 
 export const hero = {
-  title: "Every missed call is a job your competitor just booked.",
-  body: "We set up your shop's front office so every call gets answered, every quote gets chased, and every happy customer leaves a review. Live in 48 hours, or you don't pay.",
-  primaryCta: "Get my free Job Leak Score",
-  secondaryCta: "Book a 15-min call",
-  checks: [
-    "Live in 48 hours or it's free",
-    "Nothing goes out without your OK",
-    "One flat setup price",
+  eyebrow: site.tradesLine,
+  title: "Spend less time on busywork. More time on jobs.",
+  body: "We set up simple tools that do the busywork for you, like texting customers back, sending quotes, and booking jobs.",
+  primaryCta: site.primaryCtaLabel,
+  secondaryCta: "Free class Dec 1",
+  freeOffer:
+    "We look at your week for free and show you what to hand off. Keep the plan whether you hire us or not.",
+} as const;
+
+export const weekSample = {
+  title: "A sample week",
+  note: "This is an example. It is not from a real shop, and it is not a promise.",
+  beforeLabel: "Before: you do it",
+  afterLabel: "After: handed off",
+  before: [
+    "Text customers back",
+    "Write quotes",
+    "Book the jobs",
+    "Follow up on quiet quotes",
+    "Ask for reviews",
+  ],
+  after: [
+    "Texts ready for you",
+    "Quotes written for you",
+    "Jobs on your calendar",
+    "Follow-ups ready for you",
+    "Review notes ready for you",
   ],
 } as const;
 
-export const heroCard = {
-  time: "TONIGHT · 9:47 PM",
-  missed: "Missed call: new customer",
-  quote: '"AC stopped cooling. Can someone come out?"',
-  replyLabel: "REPLY READY FOR YOU",
-  reply:
-    "Sorry we missed you! We can have a tech out tomorrow at 8 AM or 10 AM. Which works better?",
-  send: "Send",
-  edit: "Edit",
-  held: "Held on your calendar: Tomorrow, 8:00 AM",
-} as const;
-
-export const pain = {
-  title: "You didn't start a business to answer the phone at dinner.",
-  body: "You're great at the work. The problem is everything around the work. That's where jobs slip away.",
-  points: [
-    {
-      n: "01",
-      title: "The call after 5 PM",
-      body: "It goes to voicemail. They don't leave one. They call the next shop on Google.",
-    },
-    {
-      n: "02",
-      title: "The quote nobody chased",
-      body: "You sent it. You meant to follow up. Two weeks later, somebody else got the job.",
-    },
-    {
-      n: "03",
-      title: "The review you never asked for",
-      body: "The customer loved you. But they never got asked, so new customers never hear about it.",
-    },
-    {
-      n: "04",
-      title: "The Sunday at the kitchen table",
-      body: "Emails, calendar, posts, paperwork. All of it lands on the owner. All of it eats your weekend.",
-    },
-  ],
-} as const;
-
-export const missedJobsCopy = {
-  eyebrow: "DO THE MATH ON YOUR SHOP",
-  title: "What are missed jobs costing you every year?",
-  body: "Put in your own numbers. Most owners have never added this up. It's usually the most expensive line in the business, and it never shows up on a bill.",
-  missedLabel: "Calls or leads missed per week",
-  jobLabel: "Your average job ($)",
-  resultLabel: "WALKING OUT THE DOOR EACH YEAR",
-  monthlyTail:
-    "a month, before a single referral those customers would have sent you.",
+export const founder = {
+  title: "Hi, I'm Kevin.",
+  body: "I help South Florida trades owners spend less time on busywork. I set things up with you and show you how it works. You stay in charge.",
 } as const;
 
 export const pricing = {
-  eyebrow: "THE FIX",
-  title: "A front office that never clocks out.",
-  body: "Built by hand for your shop. One flat price. It gets the office work ready, and you stay the boss. Nothing goes to a customer until you say so.",
+  title: "If you want us to set it all up",
+  body: "You can keep that plan and do it yourself. Or we can set it up with you.",
   kit: {
     name: "The Never-Miss-a-Job Kit",
-    audience:
-      "For the owner who's losing work after hours and wants it stopped this week.",
+    homeName: "Basic setup",
+    audience: "For the owner who wants help with texts, quotes, and booking.",
     price: "$997",
     amount: "997",
     priceNote: "one-time setup",
     includes: [
-      "Every call and web form answered and booked onto your calendar, day or night.",
-      "Show up when locals search Google for what you do.",
-      "A plain-English weekly report on what's bringing in work.",
+      "Customers get a text back, and the job goes on your calendar.",
+      "Your shop shows up when people nearby search Google for your work.",
+      "A short weekly note on where new work came from.",
     ],
-    cta: "Get the Kit",
+    cta: "Get the basic setup",
   },
   full: {
     badge: "THE FULL SET",
     name: "The Full Front Office",
-    audience:
-      "For the owner who wants the whole office off his plate, not just the phone.",
+    homeName: "Full setup",
+    audience: "For the owner who wants the rest of the busywork handled too.",
     price: "$1,997",
     amount: "1997",
     priceNote: "one-time setup",
-    lead: "Everything in the Kit, plus:",
+    lead: "Everything in the basic setup, plus:",
     includes: [
-      "Every quote followed up, so no job dies in your inbox.",
-      "Review requests after every job, so your reputation grows on its own.",
-      "Social posts written for you that show off your real work.",
-      "Inbox and calendar kept clean, so Sunday nights are yours again.",
+      "Follow-ups on quotes, so you do not have to remember each one.",
+      "A short note asking happy customers for a review.",
+      "Posts about your real jobs, written for you.",
+      "A tidy inbox and calendar.",
     ],
-    cta: "Get the Full Front Office",
+    cta: "Get the full setup",
   },
-  both: "Both include: built by hand, live in 48 hours or you don't pay, and nothing goes out without your OK.",
+  both: "Both are paid once. If it is not running in 48 hours, you do not pay. Nothing goes to a customer until you say so.",
   account:
-    "To run it, you still need your own Grok plan, paid to Grok, starting at $30 a month. Kevin sets it up with you.",
+    "To run it, you still need your own Grok plan. You pay Grok, starting at $30 a month. Kevin sets it up with you.",
 } as const;
 
 export const grokPlanNote =
@@ -129,75 +108,62 @@ export const offer = {
   auditAmount: "999",
   auditDetail:
     "A working session with Kevin, not a slide deck. You leave knowing exactly where jobs leak and what to fix first. Every dollar is credited toward your build.",
-  freeName: "Free Job Leak Score",
+  freeName: "Free time check",
   freePrice: "$0",
   freeAmount: "0",
-  freeDetail:
-    "Paste your website. We review what customers see and email you a score on 5 areas where shops lose jobs. No card. No sales pitch.",
-} as const;
-
-export const auditSection = {
-  title: "Not sure where you're leaking? Start free.",
-  freeCta: "Get my free score",
-  paidCta: "Book the audit",
+  freeDetail: hero.freeOffer,
 } as const;
 
 export const howItWorks = {
-  title: "Three steps. Two days.",
+  title: "How it works",
   steps: [
     {
       n: "1",
-      title: "Get your free score",
-      body: "Paste your website. See where jobs are slipping. Takes two minutes.",
+      title: "We look at your week.",
+      body: "You walk through a normal week with Kevin.",
     },
     {
       n: "2",
-      title: "15 minutes with Kevin",
-      body: "Tell him how your shop runs. He tells you straight which setup fits, or if you don't need one.",
+      title: "We show you what to hand off.",
+      body: "You see the busywork a simple tool can do.",
     },
     {
       n: "3",
-      title: "Live in 48 hours",
-      body: "Kevin builds it by hand and walks you through it. You approve, you hit send, you get back to work.",
+      title: "You decide.",
+      body: "Keep the plan whether you hire us or not.",
     },
   ],
 } as const;
 
-export const guarantee = {
-  eyebrow: "THE 48-HOUR GUARANTEE",
-  title: "Live in 48 hours, or you don't pay.",
-  body: "No fine print. If your setup isn't up and running within 48 hours of kickoff, you owe nothing. All the risk is on us.",
-} as const;
-
 export const finalCta = {
-  title: "The next call comes in tonight. Be ready for it.",
-  body: "Start with the free score. See what's slipping. Then decide.",
+  title: "Spend less time on busywork. More time on jobs.",
+  body: "We look at your week for free and show you what to hand off. Keep the plan whether you hire us or not.",
 } as const;
 
 export const faqs = [
   {
-    q: "Will this talk to my customers without me?",
-    a: "No. It gets the reply ready. You read it and hit send. If you ever want it to send on its own, that's your call, and you can change it any time.",
+    q: "Will this text my customers without me?",
+    a: "No. We get the text ready. You read it and you send it. If you ever want some texts to send on their own, that is your choice. You can change it any time.",
   },
   {
-    q: "Do I have to learn new software?",
-    a: "No. Kevin builds the whole thing for you and walks you through it. If you can answer a text, you can run it.",
+    q: "Do I have to learn something new?",
+    a: "No. Kevin sets it up with you and shows you how it works. If you can send a text, you can use it.",
   },
   {
-    q: "What do I pay after setup?",
-    a: "The setup is one flat price. You still need your own Grok plan, paid to Grok, starting at $30 a month. Kevin helps you open it on your call. You own it, not us.",
+    q: "What do I pay if I want you to set it up?",
+    a: "The basic setup is $997, paid once. The full setup is $1,997, paid once. You also need your own Grok plan. You pay Grok, starting at $30 a month. Kevin helps you open it. You own it.",
   },
   {
-    q: "Do you promise a certain number of jobs?",
-    a: "No. Anyone who promises you rankings or job counts is guessing. What we promise is that it's live in 48 hours, or you don't pay.",
+    q: "Is the time check really free?",
+    a: "Yes. We look at your week and show you what to hand off. You keep the plan whether you hire us or not.",
   },
   {
-    q: "What's the $999 audit for, if the score is free?",
-    a: "The free score looks at what customers see from the outside. The audit is a working session on how your shop actually runs, and what to fix first. If you go ahead with a build, the full $999 comes off the price.",
+    q: "Do you promise a set number of hours back?",
+    a: "No. We will not make up a number. Your week is your own. We show you the chores you can hand off, and you decide.",
   },
   {
     q: "Who is this for?",
-    a: "Owner-run service businesses: HVAC, plumbing, docks and marine, trash and roll-off, construction, and the shops that keep those crews moving. If you're still the one answering the phone, it's for you.",
+    a: "Owners of trades shops in South Florida who still do the busywork themselves. That includes HVAC, plumbing, pool, roofing, docks and seawall, marine, and construction.",
   },
 ] as const;
 
@@ -291,28 +257,22 @@ export function organizationJsonLd() {
       name: site.founder,
     },
     description: hero.body,
-    areaServed: "United States",
+    areaServed: "South Florida",
     makesOffer: [
       offerJsonLd({
         name: offer.freeName,
         price: offer.freeAmount,
         description: offer.freeDetail,
-        url: `${site.url}${opsLeakPath}`,
+        url: site.calendly,
       }),
       offerJsonLd({
-        name: offer.auditName,
-        price: offer.auditAmount,
-        description: offer.auditDetail,
-        url: `${site.url}/#audits`,
-      }),
-      offerJsonLd({
-        name: pricing.kit.name,
+        name: pricing.kit.homeName,
         price: pricing.kit.amount,
         description: `${pricing.kit.audience} ${pricing.kit.price} ${pricing.kit.priceNote}. ${pricing.kit.includes.join(" ")} ${pricing.both} ${pricing.account}`,
         url: `${site.url}/#pricing`,
       }),
       offerJsonLd({
-        name: pricing.full.name,
+        name: pricing.full.homeName,
         price: pricing.full.amount,
         description: `${pricing.full.audience} ${pricing.full.price} ${pricing.full.priceNote}. ${pricing.full.lead} ${pricing.full.includes.join(" ")} ${pricing.both} ${pricing.account}`,
         url: `${site.url}/#pricing`,
